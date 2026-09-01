@@ -1,10 +1,7 @@
 import ContactButton from "@/components/ContactButton";
 import ContactLink from "@/components/ContactLink";
 import Ticker from "@/components/Ticker";
-import { InstagramIcon, TikTokIcon } from "@/components/SocialIcons";
-
-const INSTAGRAM_URL = "https://www.instagram.com/zuri.agency_/";
-const TIKTOK_URL = "#";
+import SiteHeader from "@/components/SiteHeader";
 
 const TALENT_SLOTS = [
   { num: "01", niche: "Mode & lifestyle" },
@@ -75,45 +72,7 @@ const PROCESS = [
 export default function Home() {
   return (
     <>
-      <header>
-        <nav>
-          <div className="logo">
-            ZURI<span>.</span>AGENCY
-          </div>
-          <div className="navlinks">
-            <a href="#talents">Talents</a>
-            <a href="#services">Services</a>
-            <a href="#manifeste">Zuri</a>
-            <a href="#process">Comment ça marche</a>
-          </div>
-          <div style={{ display: "flex", gap: 20, alignItems: "center" }}>
-            <div className="social-icons">
-              <a
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Zuri Agency sur Instagram"
-              >
-                <InstagramIcon />
-              </a>
-              <a
-                href={TIKTOK_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Zuri Agency sur TikTok"
-              >
-                <TikTokIcon />
-              </a>
-            </div>
-            <ContactButton className="btn btn-line">
-              Nous contacter
-            </ContactButton>
-            <a href="#join" className="btn btn-fill">
-              Rejoindre l&apos;agence
-            </a>
-          </div>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <Ticker />
 
