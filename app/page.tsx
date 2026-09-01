@@ -319,7 +319,7 @@ export default function Home() {
             d&apos;exclusivité imposée sur tous les formats.
           </p>
           <div className="hero-ctas">
-            <a href="mailto:contact@zuri.agency" className="btn btn-fill">
+            <a href="mailto:contact@zuriagency.fr" className="btn btn-fill">
               Déposer ma candidature
             </a>
             <ContactButton className="btn btn-line">
@@ -376,8 +376,8 @@ export default function Home() {
                   <ContactLink>Nous contacter</ContactLink>
                 </li>
                 <li>
-                  <a href="mailto:contact@zuri.agency">
-                    contact@zuri.agency
+                  <a href="mailto:contact@zuriagency.fr">
+                    contact@zuriagency.fr
                   </a>
                 </li>
                 <li>
