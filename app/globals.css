@@ -78,6 +78,9 @@ nav{
 .navlinks{ display:flex; gap:32px; font-size:14px; font-weight:600; }
 .navlinks a{ position:relative; }
 .navlinks a:hover{ color:var(--blue); }
+.social-icons{ display:flex; align-items:center; gap:16px; color:var(--ink); }
+.social-icons a{ display:flex; color:inherit; transition:color .18s ease; }
+.social-icons a:hover{ color:var(--blue); }
 .btn{
   display:inline-block;
   padding:13px 26px;

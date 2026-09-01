@@ -1,6 +1,10 @@
 import ContactButton from "@/components/ContactButton";
 import ContactLink from "@/components/ContactLink";
 import Ticker from "@/components/Ticker";
+import { InstagramIcon, TikTokIcon } from "@/components/SocialIcons";
+
+const INSTAGRAM_URL = "https://www.instagram.com/zuri.agency_/";
+const TIKTOK_URL = "#";
 
 const TALENT_SLOTS = [
   { num: "01", niche: "Mode & lifestyle" },
@@ -82,7 +86,25 @@ export default function Home() {
             <a href="#manifeste">Manifeste</a>
             <a href="#process">Comment ça marche</a>
           </div>
-          <div style={{ display: "flex", gap: 12 }}>
+          <div style={{ display: "flex", gap: 20, alignItems: "center" }}>
+            <div className="social-icons">
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Zuri Agency sur Instagram"
+              >
+                <InstagramIcon />
+              </a>
+              <a
+                href={TIKTOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Zuri Agency sur TikTok"
+              >
+                <TikTokIcon />
+              </a>
+            </div>
             <ContactButton className="btn btn-line">
               Nous contacter
             </ContactButton>
@@ -345,7 +367,7 @@ export default function Home() {
               <h4>Agence</h4>
               <ul>
                 <li>
-                  <a href="#manifeste">Manifeste</a>
+                  <a href="#manifeste">Zuri</a>
                 </li>
                 <li>
                   <a href="#talents">Talents</a>
@@ -361,12 +383,6 @@ export default function Home() {
                 <li>
                   <a href="#process">Rejoindre</a>
                 </li>
-                <li>
-                  <a href="#">Zuri Academy</a>
-                </li>
-                <li>
-                  <a href="#">FAQ</a>
-                </li>
               </ul>
             </div>
             <div>
@@ -379,12 +395,6 @@ export default function Home() {
                   <a href="mailto:contact@zuriagency.fr">
                     contact@zuriagency.fr
                   </a>
-                </li>
-                <li>
-                  <a href="#">Instagram</a>
-                </li>
-                <li>
-                  <a href="#">TikTok</a>
                 </li>
               </ul>
             </div>
