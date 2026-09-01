@@ -83,7 +83,7 @@ export default function Home() {
           <div className="navlinks">
             <a href="#talents">Talents</a>
             <a href="#services">Services</a>
-            <a href="#manifeste">Manifeste</a>
+            <a href="#manifeste">Zuri</a>
             <a href="#process">Comment ça marche</a>
           </div>
           <div style={{ display: "flex", gap: 20, alignItems: "center" }}>
