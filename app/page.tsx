@@ -94,10 +94,8 @@ export default function Home() {
 
       <div className="stats">
         <div className="stat">
-          <div className="num">0</div>
-          <div className="label mono">
-            Talents dans l&apos;équipe (pour l&apos;instant)
-          </div>
+          <div className="num">8</div>
+          <div className="label mono">Places ouvertes dans le roster</div>
         </div>
         <div className="stat">
           <div className="num">1</div>

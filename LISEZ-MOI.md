@@ -13,6 +13,8 @@ Comme il n'y a pas encore de vrais talents, ce sont des visuels graphiques "à v
 
 La 8e carte ("Toi, peut-être ?") n'a pas été touchée.
 
+**Stats sous le hero** : le premier chiffre ("0 — Talents dans l'équipe (pour l'instant)") devient **"8 — Places ouvertes dans le roster"**, en écho à la section roster juste en dessous. Plus aucun "0" nulle part sur cette partie du site.
+
 ## Fichiers dans ce dossier
 
 - `app/page.tsx` — remplace le fichier existant (la grille du roster a été déplacée dans le nouveau composant `TalentRoster`)
@@ -29,5 +31,4 @@ Testé : le code passe la vérification TypeScript sans erreur, et la popup + le
 
 ## Pour aller plus loin (pas fait ici)
 
-- La section "stats" tout en haut du site (juste sous le hero) affiche aussi un "0" ("0 — Talents dans l'équipe (pour l'instant)"). Ce n'était pas dans la partie que tu as montrée, mais si tu veux que je la retouche aussi, dis-le-moi.
 - Les descriptions/tags par univers dans `TalentRoster.tsx` (ex: "Outfit du jour", "Match day"...) sont un premier jet — facile à réécrire si tu veux un autre ton.
