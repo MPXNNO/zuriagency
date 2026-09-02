@@ -2,16 +2,7 @@ import ContactButton from "@/components/ContactButton";
 import ContactLink from "@/components/ContactLink";
 import Ticker from "@/components/Ticker";
 import SiteHeader from "@/components/SiteHeader";
-
-const TALENT_SLOTS = [
-  { num: "01", niche: "Mode & lifestyle" },
-  { num: "02", niche: "Football & culture" },
-  { num: "03", niche: "Beauté & bien-être" },
-  { num: "04", niche: "Tech & gaming" },
-  { num: "05", niche: "Cuisine & terroir" },
-  { num: "06", niche: "Humour & sketchs" },
-  { num: "07", niche: "Entrepreneuriat" },
-];
+import TalentRoster from "@/components/TalentRoster";
 
 const SERVICES = [
   {
@@ -173,39 +164,15 @@ export default function Home() {
           <div className="section-head">
             <div>
               <div className="kicker">Le roster</div>
-              <h2>0 talents. 8 places. 1 place qui a ton nom dessus</h2>
+              <h2>8 places disponibles. La tienne, peut-être ?</h2>
             </div>
             <p className="desc">
-              Le roster est vide, littéralement. On préfère le dire plutôt
-              que d&apos;inventer des chiffres : les huit premières places
-              sont à prendre.
+              Pas de faux profils pour faire illusion : le roster se
+              construit maintenant, et les huit premières places sont encore
+              ouvertes.
             </p>
           </div>
-          <div className="talent-grid">
-            {TALENT_SLOTS.map((slot) => (
-              <div className="talent-card" key={slot.num}>
-                <div className="medal">{slot.num}</div>
-                <h3>Place libre</h3>
-                <div className="niche mono">{slot.niche}</div>
-                <div className="followers">En attente d&apos;un nom</div>
-              </div>
-            ))}
-            <a
-              href="#join"
-              className="talent-card"
-              style={{ background: "var(--lime)", textDecoration: "none" }}
-            >
-              <div
-                className="medal"
-                style={{ background: "var(--ink)", color: "var(--lime)" }}
-              >
-                08
-              </div>
-              <h3>Toi, peut-être ?</h3>
-              <div className="niche mono">Candidate ici</div>
-              <div className="followers">On répond sous 5 jours</div>
-            </a>
-          </div>
+          <TalentRoster />
         </div>
       </section>
 
