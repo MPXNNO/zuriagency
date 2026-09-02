@@ -13,7 +13,11 @@ Comme il n'y a pas encore de vrais talents, ce sont des visuels graphiques "à v
 
 La 8e carte ("Toi, peut-être ?") n'a pas été touchée.
 
-**Stats sous le hero** : le premier chiffre ("0 — Talents dans l'équipe (pour l'instant)") devient **"8 — Places ouvertes dans le roster"**, en écho à la section roster juste en dessous. Plus aucun "0" nulle part sur cette partie du site.
+**Stats sous le hero** :
+- Le premier chiffre ("0 — Talents dans l'équipe (pour l'instant)") devient **"8 — Places ouvertes dans le roster"**, en écho à la section roster juste en dessous.
+- Le deuxième ("1 — Fondateur, zéro sommeil") devient **"+ — Une jeune équipe pleine d'ambition"**.
+
+Plus aucun "0" nulle part sur cette partie du site.
 
 ## Fichiers dans ce dossier
 

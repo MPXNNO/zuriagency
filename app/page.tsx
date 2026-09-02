@@ -98,8 +98,8 @@ export default function Home() {
           <div className="label mono">Places ouvertes dans le roster</div>
         </div>
         <div className="stat">
-          <div className="num">1</div>
-          <div className="label mono">Fondateur, zéro sommeil</div>
+          <div className="num">+</div>
+          <div className="label mono">Une jeune équipe pleine d&apos;ambition</div>
         </div>
         <div className="stat">
           <div className="num">24/7</div>
