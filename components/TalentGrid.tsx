@@ -10,6 +10,7 @@ type TalentSlot = {
   followers?: string;
   bio?: string;
   photo?: string;
+  modalPhoto?: string;
   link?: string;
 };
 
@@ -22,6 +23,7 @@ const TALENT_SLOTS: TalentSlot[] = [
     followers: "9 385 Instagram · 40 600 TikTok",
     bio: "Passion musculation depuis 4 ans, énergie solaire et contenu quotidien : Mejane transforme sa discipline en résultats pour les marques qui la rejoignent.",
     photo: "/talents/mejane-01.jpg",
+    modalPhoto: "/talents/mejane-modal.jpg",
     link: "https://www.instagram.com/mmandrin/",
   },
   { num: "02", niche: "Mode & lifestyle" },
@@ -120,7 +122,7 @@ export default function TalentGrid() {
             aria-modal="true"
           >
             <img
-              src={active.photo}
+              src={active.modalPhoto ?? active.photo}
               alt={active.name}
               className="talent-modal-photo"
             />
