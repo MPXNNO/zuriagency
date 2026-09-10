@@ -1,8 +1,7 @@
 import ContactButton from "@/components/ContactButton";
 import ContactLink from "@/components/ContactLink";
 import Ticker from "@/components/Ticker";
-import SiteHeader from "@/components/SiteHeader";
-import TalentRoster from "@/components/TalentRoster";
+import TalentGrid from "@/components/TalentGrid";
 
 const SERVICES = [
   {
@@ -63,7 +62,27 @@ const PROCESS = [
 export default function Home() {
   return (
     <>
-      <SiteHeader />
+      <header>
+        <nav>
+          <div className="logo">
+            ZURI<span>.</span>AGENCY
+          </div>
+          <div className="navlinks">
+            <a href="#talents">Talents</a>
+            <a href="#services">Services</a>
+            <a href="#manifeste">Manifeste</a>
+            <a href="#process">Comment ça marche</a>
+          </div>
+          <div style={{ display: "flex", gap: 12 }}>
+            <ContactButton className="btn btn-line">
+              Nous contacter
+            </ContactButton>
+            <a href="#join" className="btn btn-fill">
+              Rejoindre l&apos;agence
+            </a>
+          </div>
+        </nav>
+      </header>
 
       <Ticker />
 
@@ -94,12 +113,14 @@ export default function Home() {
 
       <div className="stats">
         <div className="stat">
-          <div className="num">8</div>
-          <div className="label mono">Places ouvertes dans le roster</div>
+          <div className="num">1</div>
+          <div className="label mono">
+            Talent dans l&apos;équipe (pour l&apos;instant)
+          </div>
         </div>
         <div className="stat">
-          <div className="num">+</div>
-          <div className="label mono">Une jeune équipe pleine d&apos;ambition</div>
+          <div className="num">1</div>
+          <div className="label mono">Fondateur, zéro sommeil</div>
         </div>
         <div className="stat">
           <div className="num">24/7</div>
@@ -162,15 +183,15 @@ export default function Home() {
           <div className="section-head">
             <div>
               <div className="kicker">Le roster</div>
-              <h2>8 places disponibles. La tienne, peut-être ?</h2>
+              <h2>1 talent. 8 places. 1 place qui a ton nom dessus</h2>
             </div>
             <p className="desc">
-              Pas de faux profils pour faire illusion : le roster se
-              construit maintenant, et les huit premières places sont encore
-              ouvertes.
+              Le roster s&apos;ouvre à peine, on préfère le dire plutôt que
+              d&apos;inventer des chiffres : Mejane a ouvert le bal, six
+              places sont encore à prendre.
             </p>
           </div>
-          <TalentRoster />
+          <TalentGrid />
         </div>
       </section>
 
@@ -265,7 +286,7 @@ export default function Home() {
             d&apos;exclusivité imposée sur tous les formats.
           </p>
           <div className="hero-ctas">
-            <a href="mailto:contact@zuriagency.fr" className="btn btn-fill">
+            <a href="mailto:contact@zuri.agency" className="btn btn-fill">
               Déposer ma candidature
             </a>
             <ContactButton className="btn btn-line">
@@ -291,7 +312,7 @@ export default function Home() {
               <h4>Agence</h4>
               <ul>
                 <li>
-                  <a href="#manifeste">Zuri</a>
+                  <a href="#manifeste">Manifeste</a>
                 </li>
                 <li>
                   <a href="#talents">Talents</a>
@@ -307,6 +328,12 @@ export default function Home() {
                 <li>
                   <a href="#process">Rejoindre</a>
                 </li>
+                <li>
+                  <a href="#">Zuri Academy</a>
+                </li>
+                <li>
+                  <a href="#">FAQ</a>
+                </li>
               </ul>
             </div>
             <div>
@@ -316,9 +343,15 @@ export default function Home() {
                   <ContactLink>Nous contacter</ContactLink>
                 </li>
                 <li>
-                  <a href="mailto:contact@zuriagency.fr">
-                    contact@zuriagency.fr
+                  <a href="mailto:contact@zuri.agency">
+                    contact@zuri.agency
                   </a>
+                </li>
+                <li>
+                  <a href="#">Instagram</a>
+                </li>
+                <li>
+                  <a href="#">TikTok</a>
                 </li>
               </ul>
             </div>

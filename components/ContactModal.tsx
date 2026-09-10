@@ -152,9 +152,9 @@ export default function ContactModal() {
 
               <div className="modal-alt">ou directement</div>
               <div className="modal-direct">
-                <a href="mailto:contact@zuriagency.fr">
+                <a href="mailto:contact@zuri.agency">
                   <span>Email</span>
-                  <span>contact@zuriagency.fr →</span>
+                  <span>contact@zuri.agency →</span>
                 </a>
                 <a
                   href="https://instagram.com"
