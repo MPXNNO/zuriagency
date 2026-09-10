@@ -70,7 +70,7 @@ export default function Home() {
           <div className="navlinks">
             <a href="#talents">Talents</a>
             <a href="#services">Services</a>
-            <a href="#manifeste">Manifeste</a>
+            <a href="#philosophie">Philosophie</a>
             <a href="#process">Comment ça marche</a>
           </div>
           <div style={{ display: "flex", gap: 12 }}>
@@ -130,7 +130,7 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="manifeste" id="manifeste">
+      <section className="manifeste" id="philosophie">
         <div className="wrap manifeste-grid">
           <div>
             <div className="kicker">Notre philosophie</div>
@@ -310,7 +310,7 @@ export default function Home() {
               <h4>Agence</h4>
               <ul>
                 <li>
-                  <a href="#manifeste">Manifeste</a>
+                  <a href="#philosophie">Philosophie</a>
                 </li>
                 <li>
                   <a href="#talents">Talents</a>

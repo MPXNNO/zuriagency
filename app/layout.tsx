@@ -20,10 +20,53 @@ const spaceMono = Space_Mono({
   variable: "--font-mono",
 });
 
+const SITE_URL = "https://zuriagency.fr";
+const SITE_TITLE = "Zuri Agency | Agence de talents Instagram & TikTok";
+const SITE_DESCRIPTION =
+  "Zuri Agency repère et accompagne des talents à fort potentiel sur Instagram et TikTok : partenariats de marque, stratégie de contenu et développement de carrière, en France et à l'international.";
+
 export const metadata: Metadata = {
-  title: "Zuri Agency — On a du talent à revendre.",
-  description:
-    "Zuri Agency repère, structure et développe des talents avec l'exigence, les contrats et les moyens qu'ils méritent.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: "%s | Zuri Agency",
+  },
+  description: SITE_DESCRIPTION,
+  keywords: [
+    "agence de talents",
+    "agence d'influenceurs",
+    "talents Instagram",
+    "talents TikTok",
+    "partenariats de marque",
+    "management influence",
+    "Zuri Agency",
+  ],
+  authors: [{ name: "Zuri Agency" }],
+  alternates: {
+    canonical: SITE_URL,
+  },
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: "Zuri Agency",
+    locale: "fr_FR",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Zuri Agency, agence de talents Instagram & TikTok",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({
