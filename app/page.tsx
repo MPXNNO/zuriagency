@@ -113,14 +113,12 @@ export default function Home() {
 
       <div className="stats">
         <div className="stat">
-          <div className="num">1</div>
-          <div className="label mono">
-            Talent dans l&apos;équipe (pour l&apos;instant)
-          </div>
+          <div className="num">100%</div>
+          <div className="label mono">Attention sur chaque talent</div>
         </div>
         <div className="stat">
-          <div className="num">1</div>
-          <div className="label mono">Fondateur, zéro sommeil</div>
+          <div className="num">ZÉRO</div>
+          <div className="label mono">Sommeil, full obsession</div>
         </div>
         <div className="stat">
           <div className="num">24/7</div>
@@ -183,12 +181,12 @@ export default function Home() {
           <div className="section-head">
             <div>
               <div className="kicker">Le roster</div>
-              <h2>1 talent. 8 places. 1 place qui a ton nom dessus</h2>
+              <h2>8 places dans le roster. Le compte à rebours a commencé</h2>
             </div>
             <p className="desc">
-              Le roster s&apos;ouvre à peine, on préfère le dire plutôt que
-              d&apos;inventer des chiffres : Mejane a ouvert le bal, six
-              places sont encore à prendre.
+              Le roster s&apos;actualise en direct : Mejane vient tout juste
+              de nous rejoindre, six places sont encore ouvertes. La
+              tienne, peut-être.
             </p>
           </div>
           <TalentGrid />
