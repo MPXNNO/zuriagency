@@ -33,8 +33,8 @@ Le formulaire appelle `/api/contact`, qui envoie un vrai email via [Resend](http
 1. Crée un compte Resend si besoin, et récupère une clé API sur https://resend.com/api-keys
 2. Copie `.env.example` en `.env.local` et renseigne :
    - `RESEND_API_KEY` : ta clé Resend
-   - `CONTACT_TO_EMAIL` : l'adresse qui doit recevoir les messages (ex: contact@zuri.agency)
-   - `CONTACT_FROM_EMAIL` : l'adresse d'expédition. Pour que ça marche sans "sandbox mode", il faut un domaine vérifié dans Resend (comme zuri.agency, une fois les DNS configurés côté Resend). En attendant, tu peux laisser `onboarding@resend.dev` pour tester.
+   - `CONTACT_TO_EMAIL` : l'adresse qui doit recevoir les messages (ex: contact@zuriagency.fr)
+   - `CONTACT_FROM_EMAIL` : l'adresse d'expédition. Pour que ça marche sans "sandbox mode", il faut un domaine vérifié dans Resend (comme zuriagency.fr, une fois les DNS configurés côté Resend). En attendant, tu peux laisser `onboarding@resend.dev` pour tester.
 3. Redémarre le serveur (`npm run dev`) après avoir ajouté les variables.
 
 Sans `RESEND_API_KEY`, la route renvoie une erreur propre (affichée dans la popup) plutôt que de planter silencieusement.
@@ -51,4 +51,4 @@ Sans `RESEND_API_KEY`, la route renvoie une erreur propre (affichée dans la pop
 - Remplacer les 7 "places libres" du roster par les vrais talents une fois signés
 - Brancher un vrai lien Instagram / TikTok (actuellement `#`)
 - Éventuellement, connecter le formulaire du CTA final ("Déposer ma candidature") à un vrai formulaire structuré plutôt qu'un lien `mailto:`
-- Nom de domaine + DNS Resend pour pouvoir envoyer depuis `@zuri.agency`
+- Nom de domaine + DNS Resend pour pouvoir envoyer depuis `@zuriagency.fr`

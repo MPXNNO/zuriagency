@@ -2,9 +2,11 @@
 
 export default function ContactButton({
   className,
+  mode,
   children,
 }: {
   className?: string;
+  mode?: "contact" | "candidature";
   children: React.ReactNode;
 }) {
   return (
@@ -13,7 +15,7 @@ export default function ContactButton({
       className={className}
       onClick={() => {
         // @ts-expect-error global helper posé par ContactModal
-        window.openContact?.();
+        window.openContact?.(mode);
       }}
     >
       {children}

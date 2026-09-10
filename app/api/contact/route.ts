@@ -3,7 +3,7 @@ import { Resend } from "resend";
 
 export async function POST(request: Request) {
   try {
-    const { name, email, message } = await request.json();
+    const { name, email, message, type } = await request.json();
 
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
 
     const resend = new Resend(process.env.RESEND_API_KEY);
 
-    const toAddress = process.env.CONTACT_TO_EMAIL || "contact@zuri.agency";
+    const toAddress = process.env.CONTACT_TO_EMAIL || "contact@zuriagency.fr";
     const fromAddress =
       process.env.CONTACT_FROM_EMAIL || "Zuri Agency <onboarding@resend.dev>";
 
@@ -30,7 +30,10 @@ export async function POST(request: Request) {
       from: fromAddress,
       to: toAddress,
       replyTo: email,
-      subject: `Nouveau message de ${name} via zuri.agency`,
+      subject:
+        type === "candidature"
+          ? `Nouvelle candidature talent de ${name}`
+          : `Nouveau message de ${name} via zuriagency.fr`,
       text: `Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
       html: `
         <div style="font-family:sans-serif; line-height:1.6;">

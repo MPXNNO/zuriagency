@@ -95,6 +95,23 @@ nav{
 .btn-fill:hover{ background:var(--orange); border-color:var(--orange); color:var(--ink); }
 .btn-line{ background:transparent; color:var(--ink); }
 .btn-line:hover{ background:var(--ink); color:var(--paper); }
+.btn-apply{ position:relative; overflow:visible; }
+.btn-apply:hover{ animation:btn-wiggle .5s ease-in-out; background:var(--lime); border-color:var(--ink); color:var(--ink); }
+.btn-apply:hover::after{
+  content:'✦'; position:absolute; top:-10px; right:-6px;
+  font-size:14px; color:var(--pink);
+  animation:btn-sparkle .5s ease-in-out;
+}
+@keyframes btn-wiggle{
+  0%,100%{ transform:rotate(0deg) scale(1); }
+  25%{ transform:rotate(-3deg) scale(1.04); }
+  75%{ transform:rotate(3deg) scale(1.04); }
+}
+@keyframes btn-sparkle{
+  0%{ opacity:0; transform:scale(0.4) rotate(-15deg); }
+  50%{ opacity:1; transform:scale(1.1) rotate(10deg); }
+  100%{ opacity:1; transform:scale(1) rotate(0deg); }
+}
 @media(max-width:900px){ .navlinks{display:none;} }
 
 /* ---------- HERO ---------- */

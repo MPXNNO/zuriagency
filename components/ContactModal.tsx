@@ -3,13 +3,16 @@
 import { useEffect, useState } from "react";
 
 type Status = "idle" | "sending" | "sent" | "error";
+type Mode = "contact" | "candidature";
 
 export default function ContactModal() {
   const [open, setOpen] = useState(false);
+  const [mode, setMode] = useState<Mode>("contact");
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
-  const openModal = () => {
+  const openModal = (requestedMode?: Mode) => {
+    setMode(requestedMode === "candidature" ? "candidature" : "contact");
     setOpen(true);
     document.body.style.overflow = "hidden";
   };
@@ -25,7 +28,8 @@ export default function ContactModal() {
 
   useEffect(() => {
     // expose un helper global pour que n'importe quel bouton du site
-    // (nav, footer, CTA) puisse ouvrir cette unique instance de modale.
+    // (nav, footer, CTA) puisse ouvrir cette unique instance de modale,
+    // en précisant éventuellement le mode ("candidature" ou "contact").
     // @ts-expect-error attach global helper
     window.openContact = openModal;
 
@@ -47,6 +51,7 @@ export default function ContactModal() {
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement)
         .value,
+      type: mode,
     };
 
     try {
@@ -71,6 +76,8 @@ export default function ContactModal() {
     }
   }
 
+  const isCandidature = mode === "candidature";
+
   return (
     <div
       className={`modal-overlay${open ? " open" : ""}`}
@@ -92,19 +99,29 @@ export default function ContactModal() {
         <div className="modal-body">
           {status === "sent" ? (
             <div className="modal-sent">
-              <div className="big">Message envoyé ✦</div>
+              <div className="big">
+                {isCandidature ? "Candidature envoyée ✦" : "Message envoyé ✦"}
+              </div>
               <p>
-                On te répond sous 5 jours ouvrés. En attendant, va checker
-                le roster.
+                {isCandidature
+                  ? "On l'épluche avec attention et on revient vers toi sous 5 jours ouvrés. Croise les doigts."
+                  : "On te répond sous 5 jours ouvrés. En attendant, va checker le roster."}
               </p>
             </div>
           ) : (
             <>
-              <div className="kicker">Parlons-en</div>
-              <h2>Nous contacter</h2>
+              <div className="kicker">
+                {isCandidature ? "Ta candidature" : "Parlons-en"}
+              </div>
+              <h2>
+                {isCandidature
+                  ? "Convaincs-nous en 3 lignes"
+                  : "Nous contacter"}
+              </h2>
               <p className="modal-sub">
-                Talent, marque, presse : dis-nous qui tu es, on revient vers
-                toi vite.
+                {isCandidature
+                  ? "Ton pseudo, tes chiffres, ton univers. Sois toi-même, c'est exactement ce qu'on cherche."
+                  : "Talent, marque, presse : dis-nous qui tu es, on revient vers toi vite."}
               </p>
 
               {status === "error" && (
@@ -113,12 +130,16 @@ export default function ContactModal() {
 
               <form onSubmit={handleSubmit}>
                 <div className="field">
-                  <label htmlFor="c-name">Nom</label>
+                  <label htmlFor="c-name">
+                    {isCandidature ? "Nom ou pseudo" : "Nom"}
+                  </label>
                   <input
                     id="c-name"
                     name="name"
                     type="text"
-                    placeholder="Ton nom"
+                    placeholder={
+                      isCandidature ? "Ton pseudo Insta/TikTok" : "Ton nom"
+                    }
                     required
                   />
                 </div>
@@ -133,11 +154,17 @@ export default function ContactModal() {
                   />
                 </div>
                 <div className="field">
-                  <label htmlFor="c-msg">Message</label>
+                  <label htmlFor="c-msg">
+                    {isCandidature ? "Ta candidature" : "Message"}
+                  </label>
                   <textarea
                     id="c-msg"
                     name="message"
-                    placeholder="Talent, marque, presse... dis-nous en plus."
+                    placeholder={
+                      isCandidature
+                        ? "Je fais du contenu [ta niche], j'ai [tes chiffres], et je pense avoir ma place dans le roster parce que..."
+                        : "Talent, marque, presse... dis-nous en plus."
+                    }
                     required
                   />
                 </div>
@@ -146,15 +173,19 @@ export default function ContactModal() {
                   className="modal-submit"
                   disabled={status === "sending"}
                 >
-                  {status === "sending" ? "Envoi..." : "Envoyer"}
+                  {status === "sending"
+                    ? "Envoi..."
+                    : isCandidature
+                      ? "Envoyer ma candidature"
+                      : "Envoyer"}
                 </button>
               </form>
 
               <div className="modal-alt">ou directement</div>
               <div className="modal-direct">
-                <a href="mailto:contact@zuri.agency">
+                <a href="mailto:contact@zuriagency.fr">
                   <span>Email</span>
-                  <span>contact@zuri.agency →</span>
+                  <span>contact@zuriagency.fr →</span>
                 </a>
                 <a
                   href="https://instagram.com"

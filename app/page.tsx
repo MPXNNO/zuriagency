@@ -133,7 +133,7 @@ export default function Home() {
       <section className="manifeste" id="manifeste">
         <div className="wrap manifeste-grid">
           <div>
-            <div className="kicker">Notre manifeste</div>
+            <div className="kicker">Notre philosophie</div>
             <p>
               Le talent ne suffit pas sans les bonnes portes ouvertes, les
               bons contrats négociés et la bonne stratégie derrière.
@@ -284,9 +284,9 @@ export default function Home() {
             d&apos;exclusivité imposée sur tous les formats.
           </p>
           <div className="hero-ctas">
-            <a href="mailto:contact@zuri.agency" className="btn btn-fill">
+            <ContactButton className="btn btn-fill btn-apply" mode="candidature">
               Déposer ma candidature
-            </a>
+            </ContactButton>
             <ContactButton className="btn btn-line">
               Parler à un manager
             </ContactButton>
@@ -341,8 +341,8 @@ export default function Home() {
                   <ContactLink>Nous contacter</ContactLink>
                 </li>
                 <li>
-                  <a href="mailto:contact@zuri.agency">
-                    contact@zuri.agency
+                  <a href="mailto:contact@zuriagency.fr">
+                    contact@zuriagency.fr
                   </a>
                 </li>
                 <li>
