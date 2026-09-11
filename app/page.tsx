@@ -184,8 +184,8 @@ export default function Home() {
               <h2>8 places dans le roster. Le compte à rebours a commencé</h2>
             </div>
             <p className="desc">
-              Le roster s&apos;actualise en direct : Mejane vient tout juste
-              de nous rejoindre, six places sont encore ouvertes. La
+              Le roster s&apos;actualise en direct : Mejane et Anaïs viennent
+              de nous rejoindre, cinq places sont encore ouvertes. La
               tienne, peut-être.
             </p>
           </div>
