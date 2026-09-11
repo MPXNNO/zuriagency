@@ -184,9 +184,9 @@ export default function Home() {
               <h2>8 places dans le roster. Le compte à rebours a commencé</h2>
             </div>
             <p className="desc">
-              Le roster s&apos;actualise en direct : Mejane et Anaïs viennent
-              de nous rejoindre, cinq places sont encore ouvertes. La
-              tienne, peut-être.
+              Le roster s&apos;actualise en direct : Mejane, Anaïs et Clyde
+              viennent de nous rejoindre, quatre places sont encore
+              ouvertes. La tienne, peut-être.
             </p>
           </div>
           <TalentGrid />
