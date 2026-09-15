@@ -48,10 +48,6 @@ const TALENT_SLOTS: TalentSlot[] = [
     modalPhoto: "/talents/clyde-modal.jpg",
     link: "https://www.instagram.com/killa_us/",
   },
-  { num: "04", niche: "Tech & gaming" },
-  { num: "05", niche: "Cuisine & terroir" },
-  { num: "06", niche: "Humour & sketchs" },
-  { num: "07", niche: "Entrepreneuriat" },
 ];
 
 export default function TalentGrid() {
@@ -111,6 +107,19 @@ export default function TalentGrid() {
             </div>
           )
         )}
+        <button
+          type="button"
+          className="talent-card talent-card-more"
+          onClick={() => {
+            // @ts-expect-error global helper posé par ContactModal
+            window.openContact?.("contact");
+          }}
+        >
+          <div className="medal">+</div>
+          <h3>Et plus</h3>
+          <div className="niche mono">De nouveaux talents à venir</div>
+          <div className="followers">Nous contacter →</div>
+        </button>
         <a
           href="#join"
           className="talent-card"
@@ -120,7 +129,7 @@ export default function TalentGrid() {
             className="medal"
             style={{ background: "var(--ink)", color: "var(--lime)" }}
           >
-            08
+            05
           </div>
           <h3>Toi, peut-être ?</h3>
           <div className="niche mono">Candidate ici</div>

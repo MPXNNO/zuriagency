@@ -199,6 +199,11 @@ section{ padding:90px 0; }
   transition:transform .18s ease;
 }
 .talent-card:hover{ transform:translateY(-4px); }
+.talent-card-more{
+  cursor:pointer; appearance:none; -webkit-appearance:none;
+  text-align:left; font-family:inherit; font-size:inherit; color:inherit;
+}
+.talent-card-more:hover{ box-shadow:6px 6px 0 var(--ink); }
 .talent-card:nth-child(4n+1) .medal{ background:var(--orange); }
 .talent-card:nth-child(4n+2) .medal{ background:var(--blue); color:#fff; }
 .talent-card:nth-child(4n+3) .medal{ background:var(--pink); }

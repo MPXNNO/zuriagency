@@ -181,12 +181,11 @@ export default function Home() {
           <div className="section-head">
             <div>
               <div className="kicker">Le roster</div>
-              <h2>8 places dans le roster. Le compte à rebours a commencé</h2>
+              <h2>Notre roster</h2>
             </div>
             <p className="desc">
-              Le roster s&apos;actualise en direct : Mejane, Anaïs et Clyde
-              viennent de nous rejoindre, quatre places sont encore
-              ouvertes. La tienne, peut-être.
+              Mejane, Anaïs et Clyde donnent le ton. Le roster s&apos;agrandit
+              avec la même exigence à chaque talent qui nous rejoint.
             </p>
           </div>
           <TalentGrid />
