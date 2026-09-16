@@ -113,6 +113,17 @@ nav{
   100%{ opacity:1; transform:scale(1) rotate(0deg); }
 }
 @media(max-width:900px){ .navlinks{display:none;} }
+.nav-actions{ display:flex; align-items:center; gap:12px; }
+@media(max-width:640px){
+  nav{ padding:14px 16px; }
+  .logo{ font-size:18px; }
+  .nav-actions{ gap:8px; }
+  .nav-actions .btn{ padding:11px 16px; font-size:11px; }
+  .nav-actions .nav-join{ display:none; }
+}
+@media(max-width:360px){
+  .nav-actions .btn-line{ padding:10px 12px; font-size:10px; }
+}
 
 /* ---------- HERO ---------- */
 .hero{

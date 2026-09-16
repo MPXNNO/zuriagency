@@ -73,11 +73,11 @@ export default function Home() {
             <a href="#philosophie">Philosophie</a>
             <a href="#process">Comment ça marche</a>
           </div>
-          <div style={{ display: "flex", gap: 12 }}>
+          <div className="nav-actions">
             <ContactButton className="btn btn-line">
               Nous contacter
             </ContactButton>
-            <a href="#join" className="btn btn-fill">
+            <a href="#join" className="btn btn-fill nav-join">
               Rejoindre l&apos;agence
             </a>
           </div>
@@ -207,7 +207,11 @@ export default function Home() {
           </div>
           <div className="services-grid">
             {SERVICES.map((s) => (
-              <div className="service-card" key={s.idx}>
+              <div
+                className="service-card"
+                key={s.idx}
+                id={s.idx === "Formation" ? "zuri-academy" : undefined}
+              >
                 <div className="idx mono">{s.idx}</div>
                 <h3>{s.title}</h3>
                 <p>{s.text}</p>
@@ -327,7 +331,7 @@ export default function Home() {
                   <a href="#process">Rejoindre</a>
                 </li>
                 <li>
-                  <a href="#">Zuri Academy</a>
+                  <a href="#zuri-academy">Zuri Academy</a>
                 </li>
                 <li>
                   <a href="#">FAQ</a>

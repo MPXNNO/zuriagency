@@ -1,33 +1,29 @@
-# Intégration d'Antoine (@lostantwan) — 4e talent signé
+# Correctifs : header mobile qui déborde + lien "Zuri Academy"
 
-## Ce qui a changé
+## 1. Le rond noir coupé dans le header mobile
 
-**Carte 04 du roster** : la case "Place libre" est remplacée par la carte photo d'Antoine (même traitement que Mejane, Anaïs et Clyde) — photo de couverture, badge "Talent Zuri", et une fiche complète qui s'ouvre au clic.
+En regardant tes captures d'écran, j'ai trouvé le problème : sur les petits écrans (téléphone), le header affichait encore les **deux** boutons ("Nous contacter" ET "Rejoindre l'agence") côte à côte, sans aucune règle pour les rétrécir. Sur un écran étroit, le bouton noir "Rejoindre l'agence" (qui est en forme de pilule bien arrondie) se retrouvait écrasé faute de place, et donnait cette impression de "rond noir coupé" au bord de l'écran.
 
-- Niche : **Lifestyle, voyage & surf**
-- Bio : "Entre deux vols et deux vagues, toujours un bon mot en poche : Antoine mêle voyage, surf, mode et lifestyle avec une bonne humeur qui donne envie de le suivre partout."
-- Stats : **20 400 abonnés Instagram · 52 000 TikTok**
-- Lien Instagram : https://www.instagram.com/lostantwan/
+**Correctif** : sur mobile (largeur ≤ 640px), seul le bouton "Nous contacter" reste visible dans le header. Le bouton "Rejoindre l'agence" disparaît du header sur mobile (il reste bien présent ailleurs sur la page : dans le hero et dans la section "Rejoindre l'agence" en bas), donc rien n'est perdu, ça libère juste de la place. Le logo et le padding du header sont aussi légèrement réduits sur mobile pour que tout respire bien.
 
-**Cartes suivantes renumérotées** : la carte CTA finale ("Toi, peut-être ?") passe de 05 à **06**, puisqu'il y a maintenant 4 talents + la carte "Et plus" + elle-même.
+Testé et vérifié visuellement sur plusieurs largeurs (375px, 390px, 700px, 1440px) : plus aucun débordement, le header est net à toutes les tailles.
 
-**Texte d'intro de la section Talents** mis à jour pour citer Mejane, Anaïs, Clyde *et Antoine*.
+Je n'ai pas touché à autre chose dans le header : ton titre, ta description et ta favicon étaient déjà corrects côté code (le souci que tu avais vu sur Google, c'était juste le cache de la page de résultats Google, pas le site lui-même — ça se met à jour tout seul avec le temps).
 
-**Photos** : les deux photos que tu as envoyées portaient l'icône Reels (rond "profil" et rond "son coupé") en bas de l'image. Je les ai retirées en recadrant proprement le bas des deux photos (comme pour la photo du paddleboard de Mejane) plutôt qu'en tentant une retouche qui aurait pu laisser une trace — aucune perte visible sur le cadrage, son visage et sa posture restent pleinement visibles sur les deux.
+## 2. "Il n'y a pas de Zuri Academy"
 
-- `antoine-04.jpg` : photo de couverture de carte (cactus/plage, chemise rayée)
-- `antoine-modal.jpg` : photo de la fiche détaillée (montagne, snowboard)
+En fait, **Zuri Academy est bien présente** sur le site : c'est une des cartes de la section "Services" (celle avec l'intitulé "Formation"). Mais je pense avoir trouvé pourquoi elle a pu sembler absente : dans le footer, le lien "Zuri Academy" ne menait nulle part (`href="#"`, un lien resté vide). Je l'ai corrigé pour qu'il pointe vraiment vers la carte Zuri Academy dans la section Services — en cliquant dessus, on y arrive directement maintenant.
+
+Si ce que tu voulais, c'est une vraie page ou section dédiée à Zuri Academy (et pas juste une carte parmi les 6 services), dis-le-moi et je peux te proposer quelque chose de plus développé.
 
 ## Fichiers dans ce dossier
 
-- `components/TalentGrid.tsx` — remplace le fichier existant (talent ajouté + numérotation corrigée)
-- `app/page.tsx` — remplace le fichier existant (texte d'intro de la section Talents)
-- `public/talents/antoine-04.jpg` et `public/talents/antoine-modal.jpg` — nouveaux fichiers à ajouter dans `public/talents/`
+- `app/page.tsx` — remplace le fichier existant (header : classe `nav-actions`/`nav-join` ; carte Services "Formation" avec un id `zuri-academy` ; lien footer "Zuri Academy" corrigé)
+- `app/globals.css` — remplace le fichier existant (nouvelles règles `.nav-actions` + media queries mobile pour le header)
 
 ## Comment l'appliquer
 
-1. Dans le repo GitHub `zuriagency`, remplace `components/TalentGrid.tsx` et `app/page.tsx` par les versions de ce dossier.
-2. Ajoute les deux photos dans `public/talents/`.
-3. Commit + push sur la branche principale → Vercel redéploie automatiquement.
+1. Dans le repo GitHub `zuriagency`, remplace `app/page.tsx` et `app/globals.css` par les versions de ce dossier.
+2. Commit + push sur la branche principale → Vercel redéploie automatiquement.
 
-Testé : le code passe la vérification TypeScript sans erreur, et le rendu (carte + fiche modale) a été vérifié visuellement avant livraison.
+Testé : `npx tsc --noEmit` passe sans erreur, et le rendu a été vérifié par capture d'écran sur mobile (375px, 390px) et desktop (700px, 1440px) avant livraison.
