@@ -48,6 +48,17 @@ const TALENT_SLOTS: TalentSlot[] = [
     modalPhoto: "/talents/clyde-modal.jpg",
     link: "https://www.instagram.com/killa_us/",
   },
+  {
+    num: "04",
+    niche: "Lifestyle, voyage & surf",
+    name: "Antoine",
+    handle: "@lostantwan",
+    followers: "20 400 Instagram · 52 000 TikTok",
+    bio: "Entre deux vols et deux vagues, toujours un bon mot en poche : Antoine mêle voyage, surf, mode et lifestyle avec une bonne humeur qui donne envie de le suivre partout.",
+    photo: "/talents/antoine-04.jpg",
+    modalPhoto: "/talents/antoine-modal.jpg",
+    link: "https://www.instagram.com/lostantwan/",
+  },
 ];
 
 export default function TalentGrid() {
@@ -129,7 +140,7 @@ export default function TalentGrid() {
             className="medal"
             style={{ background: "var(--ink)", color: "var(--lime)" }}
           >
-            05
+            06
           </div>
           <h3>Toi, peut-être ?</h3>
           <div className="niche mono">Candidate ici</div>

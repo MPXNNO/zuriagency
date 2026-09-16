@@ -1,38 +1,33 @@
-# Mise à jour du roster — Zuri Agency
+# Intégration d'Antoine (@lostantwan) — 4e talent signé
 
 ## Ce qui a changé
 
-**Titre de section** : "0 talents. 8 places. 1 place qui a ton nom dessus" devient
-**"8 places disponibles. La tienne, peut-être ?"**, avec un texte d'intro qui ne mentionne plus le "0".
+**Carte 04 du roster** : la case "Place libre" est remplacée par la carte photo d'Antoine (même traitement que Mejane, Anaïs et Clyde) — photo de couverture, badge "Talent Zuri", et une fiche complète qui s'ouvre au clic.
 
-**Cartes du roster** : chaque encart affiche maintenant **"Présentation du talent bientôt"** au lieu de "Place libre", et devient cliquable ("Voir l'univers →").
+- Niche : **Lifestyle, voyage & surf**
+- Bio : "Entre deux vols et deux vagues, toujours un bon mot en poche : Antoine mêle voyage, surf, mode et lifestyle avec une bonne humeur qui donne envie de le suivre partout."
+- Stats : **20 400 abonnés Instagram · 52 000 TikTok**
+- Lien Instagram : https://www.instagram.com/lostantwan/
 
-**Popup au clic** : chaque encart ouvre une fenêtre avec le nom de l'univers, une courte description, un mini-carrousel à feuilleter (flèches + points) montrant 3 aperçus stylisés dans les couleurs de la charte (orange/bleu/rose/lime, motifs pointillés/grille/diagonales), et un bouton "Candidater pour cette place" qui renvoie vers le formulaire.
+**Cartes suivantes renumérotées** : la carte CTA finale ("Toi, peut-être ?") passe de 05 à **06**, puisqu'il y a maintenant 4 talents + la carte "Et plus" + elle-même.
 
-Comme il n'y a pas encore de vrais talents, ce sont des visuels graphiques "à venir" dans le style du site plutôt que de fausses photos — pour ne pas donner l'impression qu'un talent existe déjà.
+**Texte d'intro de la section Talents** mis à jour pour citer Mejane, Anaïs, Clyde *et Antoine*.
 
-La 8e carte ("Toi, peut-être ?") n'a pas été touchée.
+**Photos** : les deux photos que tu as envoyées portaient l'icône Reels (rond "profil" et rond "son coupé") en bas de l'image. Je les ai retirées en recadrant proprement le bas des deux photos (comme pour la photo du paddleboard de Mejane) plutôt qu'en tentant une retouche qui aurait pu laisser une trace — aucune perte visible sur le cadrage, son visage et sa posture restent pleinement visibles sur les deux.
 
-**Stats sous le hero** :
-- Le premier chiffre ("0 — Talents dans l'équipe (pour l'instant)") devient **"8 — Places ouvertes dans le roster"**, en écho à la section roster juste en dessous.
-- Le deuxième ("1 — Fondateur, zéro sommeil") devient **"+ — Une jeune équipe pleine d'ambition"**.
-
-Plus aucun "0" nulle part sur cette partie du site.
+- `antoine-04.jpg` : photo de couverture de carte (cactus/plage, chemise rayée)
+- `antoine-modal.jpg` : photo de la fiche détaillée (montagne, snowboard)
 
 ## Fichiers dans ce dossier
 
-- `app/page.tsx` — remplace le fichier existant (la grille du roster a été déplacée dans le nouveau composant `TalentRoster`)
-- `app/globals.css` — remplace le fichier existant (styles ajoutés à la fin : bouton-carte, popup, motifs)
-- `components/TalentRoster.tsx` — nouveau fichier à ajouter dans `components/`
+- `components/TalentGrid.tsx` — remplace le fichier existant (talent ajouté + numérotation corrigée)
+- `app/page.tsx` — remplace le fichier existant (texte d'intro de la section Talents)
+- `public/talents/antoine-04.jpg` et `public/talents/antoine-modal.jpg` — nouveaux fichiers à ajouter dans `public/talents/`
 
 ## Comment l'appliquer
 
-1. Dans ton repo GitHub `zuriagency`, remplace `app/page.tsx` et `app/globals.css` par les versions de ce dossier.
-2. Ajoute le nouveau fichier `components/TalentRoster.tsx`.
+1. Dans le repo GitHub `zuriagency`, remplace `components/TalentGrid.tsx` et `app/page.tsx` par les versions de ce dossier.
+2. Ajoute les deux photos dans `public/talents/`.
 3. Commit + push sur la branche principale → Vercel redéploie automatiquement.
 
-Testé : le code passe la vérification TypeScript sans erreur, et la popup + le carrousel ont été vérifiés visuellement (bureau et mobile) avant livraison.
-
-## Pour aller plus loin (pas fait ici)
-
-- Les descriptions/tags par univers dans `TalentRoster.tsx` (ex: "Outfit du jour", "Match day"...) sont un premier jet — facile à réécrire si tu veux un autre ton.
+Testé : le code passe la vérification TypeScript sans erreur, et le rendu (carte + fiche modale) a été vérifié visuellement avant livraison.

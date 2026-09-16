@@ -184,8 +184,9 @@ export default function Home() {
               <h2>Notre roster</h2>
             </div>
             <p className="desc">
-              Mejane, Anaïs et Clyde donnent le ton. Le roster s&apos;agrandit
-              avec la même exigence à chaque talent qui nous rejoint.
+              Mejane, Anaïs, Clyde et Antoine donnent le ton. Le roster
+              s&apos;agrandit avec la même exigence à chaque talent qui nous
+              rejoint.
             </p>
           </div>
           <TalentGrid />
