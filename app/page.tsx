@@ -65,7 +65,7 @@ export default function Home() {
 
       <SiteFooter
         links={[
-          { href: "/fondateur", label: "Le mot du fondateur" },
+          { href: "/fondateur", label: "Le mot du fondateur", highlight: true },
           { href: "/contact", label: "Nous contacter" },
         ]}
       />
