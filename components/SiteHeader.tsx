@@ -1,135 +1,79 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import ContactButton from "@/components/ContactButton";
-import { InstagramIcon, TikTokIcon } from "@/components/SocialIcons";
-
-const INSTAGRAM_URL = "https://www.instagram.com/zuri.agency_/";
-const TIKTOK_URL = "#";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 const NAV_LINKS = [
-  { href: "#talents", label: "Talents" },
-  { href: "#services", label: "Services" },
-  { href: "#manifeste", label: "Zuri" },
-  { href: "#process", label: "Comment ça marche" },
+  { href: "/talents", label: "Talents" },
+  { href: "/strategie-entreprise", label: "Stratégie d'entreprise" },
+  { href: "/marketing-influence", label: "Marketing d'influence" },
+  { href: "/management-sportif", label: "Management sportif" },
+  { href: "/collaborations", label: "Nos collaborations" },
 ];
 
 export default function SiteHeader() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
 
-  // close the mobile menu whenever the viewport grows back to desktop size
   useEffect(() => {
-    const onResize = () => {
-      if (window.innerWidth > 900) setOpen(false);
-    };
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    function onClick(e: MouseEvent) {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
   }, []);
 
-  // lock body scroll while the mobile menu is open
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
-
   return (
-    <header>
-      <nav>
-        <div className="logo">
-          ZURI<span>.</span>AGENCY
-        </div>
-
-        <div className="navlinks">
+    <nav className={`nav${open ? " open" : ""}`} ref={navRef}>
+      <div className="wrap nav-inner">
+        <Link href="/" className="logo">
+          ZURI<span className="dot">.</span>AGENCY
+        </Link>
+        <ul className="navlinks">
           {NAV_LINKS.map((l) => (
-            <a key={l.href} href={l.href}>
-              {l.label}
-            </a>
+            <li key={l.href}>
+              <Link
+                href={l.href}
+                aria-current={pathname === l.href ? "page" : undefined}
+              >
+                {l.label}
+              </Link>
+            </li>
           ))}
-        </div>
-
-        <div className="header-actions">
-          <div className="social-icons">
-            <a
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Zuri Agency sur Instagram"
-            >
-              <InstagramIcon />
-            </a>
-            <a
-              href={TIKTOK_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Zuri Agency sur TikTok"
-            >
-              <TikTokIcon />
-            </a>
-          </div>
-          <ContactButton className="btn btn-line">
+        </ul>
+        <div className="nav-right">
+          <Link href="/contact" className="nav-cta">
             Nous contacter
-          </ContactButton>
-          <a href="#join" className="btn btn-fill">
-            Rejoindre l&apos;agence
-          </a>
-        </div>
-
-        <button
-          type="button"
-          className={`menu-toggle${open ? " open" : ""}`}
-          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-      </nav>
-
-      <div className={`mobile-menu${open ? " open" : ""}`}>
-        <div className="mobile-menu-links">
-          {NAV_LINKS.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
-              {l.label}
-            </a>
-          ))}
-        </div>
-
-        <div className="mobile-menu-actions">
-          <ContactButton className="btn btn-line">
-            Nous contacter
-          </ContactButton>
-          <a
-            href="#join"
-            className="btn btn-fill"
-            onClick={() => setOpen(false)}
+          </Link>
+          <button
+            type="button"
+            className="navtoggle"
+            aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
           >
-            Rejoindre l&apos;agence
-          </a>
-        </div>
-
-        <div className="social-icons mobile-menu-social">
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Zuri Agency sur Instagram"
-          >
-            <InstagramIcon size={24} />
-          </a>
-          <a
-            href={TIKTOK_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Zuri Agency sur TikTok"
-          >
-            <TikTokIcon size={24} />
-          </a>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+            >
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
         </div>
       </div>
-    </header>
+    </nav>
   );
 }

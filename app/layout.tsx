@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Archivo_Black, Inter, Space_Mono } from "next/font/google";
-import ContactModal from "@/components/ContactModal";
 import "./globals.css";
 
 const archivo = Archivo_Black({
@@ -21,9 +20,9 @@ const spaceMono = Space_Mono({
 });
 
 const SITE_URL = "https://zuriagency.fr";
-const SITE_TITLE = "Zuri Agency | Agence de talents Instagram & TikTok";
+const SITE_TITLE = "Zuri Agency | Influence. Stratégie. Sport.";
 const SITE_DESCRIPTION =
-  "Zuri Agency repère et accompagne des talents à fort potentiel sur Instagram et TikTok : partenariats de marque, stratégie de contenu et développement de carrière, en France et à l'international.";
+  "Zuri Agency est une agence créée par Steve K. Dompe, qui accompagne les talents, les entrepreneurs et les entreprises dans leur développement à travers trois pôles : marketing d'influence, stratégie d'entreprise et management sportif.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -33,13 +32,12 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   keywords: [
-    "agence de talents",
-    "agence d'influenceurs",
-    "talents Instagram",
-    "talents TikTok",
-    "partenariats de marque",
-    "management influence",
     "Zuri Agency",
+    "agence de talents",
+    "marketing d'influence",
+    "stratégie d'entreprise",
+    "management sportif",
+    "Steve K. Dompe",
   ],
   authors: [{ name: "Zuri Agency" }],
   alternates: {
@@ -57,7 +55,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Zuri Agency, agence de talents Instagram & TikTok",
+        alt: "Zuri Agency",
       },
     ],
   },
@@ -80,7 +78,6 @@ export default function RootLayout({
         className={`${archivo.variable} ${inter.variable} ${spaceMono.variable}`}
       >
         {children}
-        <ContactModal />
       </body>
     </html>
   );
