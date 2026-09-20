@@ -24,10 +24,6 @@ export default function ConfidentialitePage() {
 
       <section className="block">
         <div className="wrap">
-          <div className="legal-note">
-            À faire relire et compléter (base légale précise, durées de
-            conservation, sous-traitants éventuels) avant mise en ligne.
-          </div>
           <div className="legal-content">
             <div>
               <h3>Données collectées</h3>

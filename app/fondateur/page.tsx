@@ -27,7 +27,7 @@ export default function FondateurPage() {
           <figure className="founder-photo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/founder-steve.jpg"
+              src="/founder-steve.webp"
               alt="Portrait de Steve K. Dompe, fondateur de Zuri Agency"
             />
             <figcaption className="founder-caption">
