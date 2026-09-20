@@ -1,10 +1,7 @@
-# Mise à jour : photo du fondateur détourée + page confidentialité
+# Mise à jour : cercles sur téléphone
 
-Fichiers à envoyer sur GitHub (mêmes chemins que dans ce dossier) :
+Fichier à remplacer sur GitHub :
 
-- public/founder-steve.webp (nouveau : Steve détouré, fond transparent)
-- app/fondateur/page.tsx (utilise la nouvelle photo)
-- app/globals.css (cercle doré derrière Steve, sans cadre)
-- app/confidentialite/page.tsx (bloc "À faire relire et compléter" retiré)
+- components/InkBackground.tsx
 
-L'ancien fichier public/founder-steve.jpg peut rester, il n'est plus utilisé.
+Cercles plus petits et moins nombreux sur téléphone, et plus de saccades quand la barre d'adresse du navigateur apparaît ou disparaît au scroll.

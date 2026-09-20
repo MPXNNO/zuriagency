@@ -175,10 +175,11 @@ export default function InkBackground() {
 
     function build() {
       const s = Math.max(Math.min(W, H * 1.3) / 1000, 0.55);
-      const n = W < 600 ? 22 : 38;
+      const small = W < 600;
+      const n = small ? 16 : 38;
       circles = [];
       for (let i = 0; i < n; i++) {
-        const r = rnd(16, 52) * Math.max(s, 0.7) * 1.2;
+        const r = small ? rnd(9, 26) : rnd(16, 52) * Math.max(s, 0.7) * 1.2;
         const a = rnd(0, 6.28), sp = rnd(10, 30) * s;
         circles.push({
           x: rnd(0, W), y: rnd(0, H), r, r0: r,
@@ -270,8 +271,16 @@ export default function InkBackground() {
     }
 
     function resize() {
-      W = window.innerWidth; H = window.innerHeight;
+      const nw = window.innerWidth, nh = window.innerHeight;
+      // sur téléphone, la barre d'adresse change la hauteur au scroll : on ne reconstruit pas
+      if (circles.length && nw === W && Math.abs(nh - H) < 160) {
+        H = nh;
+        if (cv!.height !== H) { cv!.height = H; draw(); }
+        return;
+      }
+      W = nw; H = nh;
       cv!.width = W; cv!.height = H;
+      mouse.r = W < 600 ? 26 : 56;
       build();
       settle();
     }
