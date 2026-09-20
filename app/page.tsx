@@ -10,7 +10,10 @@ export default function Home() {
       <section className="hero">
         <div className="wrap">
           <div className="hero-text">
-            <h1>Zuri Agency</h1>
+            <h1>
+              <span>Zuri</span>{" "}
+              <span>Agency</span>
+            </h1>
             <p className="hero-tagline">Influence. Strategy. Sport.</p>
             <div className="hero-copy">
               <p>

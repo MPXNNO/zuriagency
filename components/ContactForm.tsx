@@ -48,7 +48,7 @@ export default function ContactForm() {
       <div className="form form-sent">
         <div className="big">Message envoyé ✦</div>
         <p>
-          Merci, on vous répond sous 5 jours ouvrés. En attendant, allez jeter
+          Merci, on vous répond sous 48h. En attendant, allez jeter
           un œil au roster.
         </p>
       </div>

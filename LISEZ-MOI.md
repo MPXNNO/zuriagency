@@ -1,29 +1,38 @@
-# Correctifs : header mobile qui déborde + lien "Zuri Academy"
+# Zuri Agency : nouveau design "encre" + Marlene + réponse sous 48h
 
-## 1. Le rond noir coupé dans le header mobile
+Ce dossier contient uniquement les 9 fichiers modifiés ou ajoutés. Les chemins sont ceux du repo GitHub `mpxnno/zuriagency`.
 
-En regardant tes captures d'écran, j'ai trouvé le problème : sur les petits écrans (téléphone), le header affichait encore les **deux** boutons ("Nous contacter" ET "Rejoindre l'agence") côte à côte, sans aucune règle pour les rétrécir. Sur un écran étroit, le bouton noir "Rejoindre l'agence" (qui est en forme de pilule bien arrondie) se retrouvait écrasé faute de place, et donnait cette impression de "rond noir coupé" au bord de l'écran.
+## Ce qui change
 
-**Correctif** : sur mobile (largeur ≤ 640px), seul le bouton "Nous contacter" reste visible dans le header. Le bouton "Rejoindre l'agence" disparaît du header sur mobile (il reste bien présent ailleurs sur la page : dans le hero et dans la section "Rejoindre l'agence" en bas), donc rien n'est perdu, ça libère juste de la place. Le logo et le padding du header sont aussi légèrement réduits sur mobile pour que tout respire bien.
+- Fond blanc avec des cercles colorés animés qui contournent les textes et fusionnent avec la goutte de la souris (bouton "Figer l'encre" en bas à droite).
+- Vidéo de la page d'accueil dans un grand cercle.
+- Marlene ajoutée en 5e talent sur la page Talents (Instagram et TikTok).
+- Délai de réponse : "sous 48h" au lieu de "sous 5 jours ouvrés" (page Contact, message de confirmation, description de la page).
+- Tous les textes des pages restent identiques.
 
-Testé et vérifié visuellement sur plusieurs largeurs (375px, 390px, 700px, 1440px) : plus aucun débordement, le header est net à toutes les tailles.
+## Fichiers
 
-Je n'ai pas touché à autre chose dans le header : ton titre, ta description et ta favicon étaient déjà corrects côté code (le souci que tu avais vu sur Google, c'était juste le cache de la page de résultats Google, pas le site lui-même — ça se met à jour tout seul avec le temps).
-
-## 2. "Il n'y a pas de Zuri Academy"
-
-En fait, **Zuri Academy est bien présente** sur le site : c'est une des cartes de la section "Services" (celle avec l'intitulé "Formation"). Mais je pense avoir trouvé pourquoi elle a pu sembler absente : dans le footer, le lien "Zuri Academy" ne menait nulle part (`href="#"`, un lien resté vide). Je l'ai corrigé pour qu'il pointe vraiment vers la carte Zuri Academy dans la section Services — en cliquant dessus, on y arrive directement maintenant.
-
-Si ce que tu voulais, c'est une vraie page ou section dédiée à Zuri Academy (et pas juste une carte parmi les 6 services), dis-le-moi et je peux te proposer quelque chose de plus développé.
-
-## Fichiers dans ce dossier
-
-- `app/page.tsx` — remplace le fichier existant (header : classe `nav-actions`/`nav-join` ; carte Services "Formation" avec un id `zuri-academy` ; lien footer "Zuri Academy" corrigé)
-- `app/globals.css` — remplace le fichier existant (nouvelles règles `.nav-actions` + media queries mobile pour le header)
+| Fichier | Action |
+|---|---|
+| `app/globals.css` | remplace l'existant (nouveau design) |
+| `app/layout.tsx` | remplace l'existant (ajoute le fond d'encre) |
+| `app/page.tsx` | remplace l'existant (titre en deux lignes) |
+| `app/talents/page.tsx` | remplace l'existant (description avec Marlene) |
+| `app/contact/page.tsx` | remplace l'existant (48h) |
+| `components/ContactForm.tsx` | remplace l'existant (48h) |
+| `components/TalentGrid.tsx` | remplace l'existant (ajoute Marlene) |
+| `components/InkBackground.tsx` | nouveau fichier |
+| `public/talents/talent-05.jpg` | nouvelle photo de Marlene |
 
 ## Comment l'appliquer
 
-1. Dans le repo GitHub `zuriagency`, remplace `app/page.tsx` et `app/globals.css` par les versions de ce dossier.
-2. Commit + push sur la branche principale → Vercel redéploie automatiquement.
+1. Sur GitHub, dans le repo `zuriagency`, importe ces fichiers en gardant les mêmes dossiers (Add file > Upload files, tu peux glisser les dossiers `app`, `components` et `public` d'un coup). Vérifie que chaque fichier a bien remplacé l'ancien, sans doublon.
+2. Commit sur la branche principale : Vercel redéploie tout seul.
+3. Après le déploiement, fais un rechargement forcé (Cmd+Shift+R sur Mac).
 
-Testé : `npx tsc --noEmit` passe sans erreur, et le rendu a été vérifié par capture d'écran sur mobile (375px, 390px) et desktop (700px, 1440px) avant livraison.
+## Notes
+
+- Testé : `tsc` sans erreur et `next build` OK (16 pages), rendu vérifié sur ordinateur et téléphone.
+- Le site reste en thème clair : l'ancien mode sombre automatique est retiré, le fond est toujours blanc.
+- Les anciens fichiers inutilisés (`ContactModal.tsx`, `TalentRoster.tsx`, etc.) contiennent encore "5 jours ouvrés" mais ne sont affichés nulle part. Tu peux les supprimer du repo.
+- La page Politique de confidentialité affiche encore la note interne "À faire relire et compléter... avant mise en ligne" (`app/confidentialite/page.tsx`). Je ne l'ai pas touchée : à retirer quand le texte est validé.

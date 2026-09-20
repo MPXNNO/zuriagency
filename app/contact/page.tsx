@@ -7,7 +7,7 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Une marque, un talent qui veut nous rejoindre, une question : l'équipe Zuri Agency répond sous 5 jours ouvrés.",
+    "Une marque, un talent qui veut nous rejoindre, une question : l'équipe Zuri Agency répond sous 48h.",
 };
 
 export default function ContactPage() {
@@ -17,7 +17,7 @@ export default function ContactPage() {
 
       <PageHeader eyebrow="Contact" title="Parlons de votre projet">
         Une marque, un talent qui veut nous rejoindre, une question :
-        l&apos;équipe répond sous 5 jours ouvrés.
+        l&apos;équipe répond sous 48h.
       </PageHeader>
 
       <section className="block">
@@ -34,7 +34,7 @@ export default function ContactPage() {
               </li>
               <li>
                 <span>Réponse</span>
-                <span>Sous 5 jours ouvrés</span>
+                <span>Sous 48h</span>
               </li>
             </ul>
           </div>

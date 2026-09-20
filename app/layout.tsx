@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo_Black, Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
+import InkBackground from "@/components/InkBackground";
 
 const archivo = Archivo_Black({
   weight: "400",
@@ -77,6 +78,7 @@ export default function RootLayout({
       <body
         className={`${archivo.variable} ${inter.variable} ${spaceMono.variable}`}
       >
+        <InkBackground />
         {children}
       </body>
     </html>
