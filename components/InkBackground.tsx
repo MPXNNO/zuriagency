@@ -22,7 +22,7 @@ const BOX_SEL =
 type Circle = {
   x: number; y: number; r: number; r0: number; vx: number; vy: number;
   c: string; ph: number; ps: number; pa: number;
-  k: number; stuck: number; dying: boolean;
+  k: number; stuck: number; dying: boolean; hold?: boolean;
 };
 type Rect = { left: number; top: number; right: number; bottom: number };
 type Round = { circ: true; cx: number; cy: number; R: number };
@@ -161,25 +161,39 @@ export default function InkBackground() {
       return false;
     }
 
-    function relocate(c: Circle) {
-      for (let t = 0; t < 40; t++) {
-        c.x = rnd(0, W); c.y = rnd(0, H);
-        if (overlaps(c, 1)) continue;
-        if (circles.some((o) => o !== c && (o.x - c.x) ** 2 + (o.y - c.y) ** 2 < (o.r + c.r) ** 2 * 1.3)) continue;
-        break;
+    function hit(x: number, y: number, r: number) {
+      for (const b of obstacles) {
+        if (isRound(b)) { if (Math.hypot(x - b.cx, y - b.cy) < b.R + r) return true; continue; }
+        const nx = Math.max(b.left, Math.min(x, b.right));
+        const ny = Math.max(b.top, Math.min(y, b.bottom));
+        if (Math.hypot(x - nx, y - ny) < r) return true;
       }
-      const a = rnd(0, 6.28);
-      c.vx = Math.cos(a) * 20; c.vy = Math.sin(a) * 20;
-      c.stuck = 0; c.dying = false; c.k = 0.02;
+      return false;
+    }
+
+    // cherche une place libre pour la taille COMPLÈTE du cercle ; sinon il attend caché
+    function relocate(c: Circle, tries = 60): boolean {
+      for (let t = 0; t < tries; t++) {
+        const x = rnd(0, W), y = rnd(0, H);
+        if (hit(x, y, c.r0 * 1.1 + MARGIN)) continue;
+        if (circles.some((o) => o !== c && !o.hold && (o.x - x) ** 2 + (o.y - y) ** 2 < (o.r0 + c.r0) ** 2 * 1.4)) continue;
+        c.x = x; c.y = y;
+        const a = rnd(0, 6.28);
+        c.vx = Math.cos(a) * 20; c.vy = Math.sin(a) * 20;
+        c.stuck = 0; c.dying = false; c.hold = false; c.k = 0.02;
+        return true;
+      }
+      c.hold = true; c.dying = false; c.k = 0.02; c.r = 0;
+      return false;
     }
 
     function build() {
       const s = Math.max(Math.min(W, H * 1.3) / 1000, 0.55);
       const small = W < 600;
-      const n = small ? 12 : 38;
+      const n = small ? 24 : 38;
       circles = [];
       for (let i = 0; i < n; i++) {
-        const r = small ? rnd(9, 22) : rnd(16, 52) * Math.max(s, 0.7) * 1.2;
+        const r = small ? rnd(10, 24) : rnd(16, 52) * Math.max(s, 0.7) * 1.2;
         const a = rnd(0, 6.28), sp = rnd(10, 30) * s;
         circles.push({
           x: rnd(0, W), y: rnd(0, H), r, r0: r,
@@ -194,8 +208,9 @@ export default function InkBackground() {
       if (!ctx) return;
       ctx.clearRect(0, 0, W, H);
       for (const c of circles) {
+        if (c.hold || c.r < 0.6) continue;
         ctx.beginPath();
-        ctx.arc(c.x, c.y, Math.max(c.r, 0.1), 0, 6.2832);
+        ctx.arc(c.x, c.y, c.r, 0, 6.2832);
         ctx.fillStyle = c.c;
         ctx.fill();
       }
@@ -211,7 +226,7 @@ export default function InkBackground() {
       collect();
       measure();
       for (let k = 0; k < 3; k++) for (const c of circles) avoid(c, false);
-      for (const c of circles) if (overlaps(c, 0.85)) { relocate(c); c.k = 1; }
+      for (const c of circles) if (overlaps(c, 0.85)) { if (relocate(c)) c.k = 1; }
       draw();
     }
     settleRef.current = settle;
@@ -221,6 +236,7 @@ export default function InkBackground() {
       measure();
       for (let i = 0; i < circles.length; i++) {
         const c = circles[i];
+        if (c.hold) { if (frame % 8 === i % 8) relocate(c, 12); continue; }
         c.vx += Math.cos(t * 0.0004 + c.ph * 3) * 6 * dt;
         c.vy += Math.sin(t * 0.00035 + c.ph * 2) * 6 * dt;
         for (let j = i + 1; j < circles.length; j++) {
@@ -246,7 +262,17 @@ export default function InkBackground() {
         const sp = Math.sqrt(c.vx * c.vx + c.vy * c.vy) || 1;
         const k2 = 1 + ((26 - sp) / sp) * Math.min(1, dt * 1.2);
         c.vx *= k2; c.vy *= k2;
-        c.x += c.vx * dt; c.y += c.vy * dt;
+        if (W < 600) {
+          // téléphone : rebond simple sur le texte, sans poussée (évite les traînées et les tremblements)
+          const ox = c.x, oy = c.y;
+          c.x += c.vx * dt; c.y += c.vy * dt;
+          if (hit(c.x, c.y, c.r0 + MARGIN) && !hit(ox, oy, c.r0 + MARGIN)) {
+            c.x = ox; c.y = oy;
+            c.vx = -c.vx + rnd(-8, 8); c.vy = -c.vy + rnd(-8, 8);
+          }
+        } else {
+          c.x += c.vx * dt; c.y += c.vy * dt;
+        }
         if (c.x < c.r * 0.3 && c.vx < 0) c.vx *= -1;
         if (c.x > W - c.r * 0.3 && c.vx > 0) c.vx *= -1;
         if (c.y < c.r * 0.3 && c.vy < 0) c.vy *= -1;
@@ -256,7 +282,7 @@ export default function InkBackground() {
           c.k -= dt * 3.5;
           if (c.k <= 0.02) relocate(c);
         } else {
-          avoid(c, true);
+          if (W >= 600) avoid(c, true);
           if (c.k < 1) c.k = Math.min(1, c.k + dt * 2.2);
           if (overlaps(c, 0.7)) { if (++c.stuck > 18) c.dying = true; } else c.stuck = 0;
         }

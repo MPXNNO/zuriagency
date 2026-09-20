@@ -1,6 +1,8 @@
-# Mise à jour : mobile
+# Mise à jour : cercles sur téléphone (version 3)
 
 Fichiers à remplacer sur GitHub :
 
-- components/InkBackground.tsx (moins de cercles, plus petits, plus de traînées sur téléphone, la goutte ne reste plus collée après un toucher)
-- app/globals.css (cercle doré de la page fondateur recalé sur la photo)
+- components/InkBackground.tsx
+- app/globals.css
+
+Ces deux fichiers contiennent aussi les corrections des mises à jour précédentes (photo du fondateur, cercles mobile). Si tu les remplaces, tu n'as pas besoin des zips précédents pour ces deux fichiers.
