@@ -60,7 +60,7 @@ export default function InkBackground() {
     let frame = 0;
     let raf = 0;
     const mouse = { x: -9999, y: -9999, on: false, r: 56 };
-    const MARGIN = 12;
+    let MARGIN = 12;
 
     function collect() {
       textEls = Array.from(document.querySelectorAll(TEXT_SEL));
@@ -176,10 +176,10 @@ export default function InkBackground() {
     function build() {
       const s = Math.max(Math.min(W, H * 1.3) / 1000, 0.55);
       const small = W < 600;
-      const n = small ? 16 : 38;
+      const n = small ? 12 : 38;
       circles = [];
       for (let i = 0; i < n; i++) {
-        const r = small ? rnd(9, 26) : rnd(16, 52) * Math.max(s, 0.7) * 1.2;
+        const r = small ? rnd(9, 22) : rnd(16, 52) * Math.max(s, 0.7) * 1.2;
         const a = rnd(0, 6.28), sp = rnd(10, 30) * s;
         circles.push({
           x: rnd(0, W), y: rnd(0, H), r, r0: r,
@@ -280,11 +280,13 @@ export default function InkBackground() {
       }
       W = nw; H = nh;
       cv!.width = W; cv!.height = H;
-      mouse.r = W < 600 ? 26 : 56;
+      mouse.r = 56;
+      MARGIN = W < 600 ? 6 : 12;
       build();
       settle();
     }
     const onMove = (e: PointerEvent) => {
+      if (e.pointerType === "touch") return;
       mouse.x = e.clientX; mouse.y = e.clientY; mouse.on = true;
       if (pausedRef.current) draw();
     };

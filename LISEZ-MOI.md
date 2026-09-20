@@ -1,7 +1,6 @@
-# Mise à jour : cercles sur téléphone
+# Mise à jour : mobile
 
-Fichier à remplacer sur GitHub :
+Fichiers à remplacer sur GitHub :
 
-- components/InkBackground.tsx
-
-Cercles plus petits et moins nombreux sur téléphone, et plus de saccades quand la barre d'adresse du navigateur apparaît ou disparaît au scroll.
+- components/InkBackground.tsx (moins de cercles, plus petits, plus de traînées sur téléphone, la goutte ne reste plus collée après un toucher)
+- app/globals.css (cercle doré de la page fondateur recalé sur la photo)
