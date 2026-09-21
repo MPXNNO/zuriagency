@@ -1,8 +1,7 @@
-# Mise à jour : cercles sur téléphone (version 3)
+# Ajout de Stanley
 
-Fichiers à remplacer sur GitHub :
+Fichiers à envoyer sur GitHub (mêmes chemins) :
 
-- components/InkBackground.tsx
-- app/globals.css
-
-Ces deux fichiers contiennent aussi les corrections des mises à jour précédentes (photo du fondateur, cercles mobile). Si tu les remplaces, tu n'as pas besoin des zips précédents pour ces deux fichiers.
+- public/talents/talent-06.jpg (nouveau)
+- components/TalentGrid.tsx
+- app/talents/page.tsx
