@@ -1,5 +1,6 @@
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import TrustedBy from "@/components/TrustedBy";
 import { HeroBackdrop, HeroReelControl } from "@/components/HeroVideo";
 
 export default function Home() {
@@ -70,6 +71,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <TrustedBy />
 
       <SiteFooter
         links={[

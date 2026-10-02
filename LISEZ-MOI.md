@@ -1,41 +1,24 @@
-# Refonte : ambiance sable et vidéo de fond (octobre 2026)
-
-Tous les textes du site sont inchangés. Seuls le design, l'en-tête, le pied de page et l'accueil changent.
+# Ajout du bloc « Ils nous font confiance » et photo du fondateur teintée
 
 ## Fichiers à envoyer sur GitHub (mêmes chemins)
 
 Modifiés :
+- app/page.tsx (le bloc est ajouté après « Que veut dire Zuri ? »)
 - app/globals.css
-- app/layout.tsx
-- app/page.tsx
-- app/collaborations/page.tsx
-- components/SiteHeader.tsx
-- components/SiteFooter.tsx
-- components/HeroVideo.tsx
-- components/TalentGrid.tsx
-- public/founder-steve.jpg (noir et blanc)
-- public/founder-steve.webp (noir et blanc)
+- public/founder-steve.jpg (monochrome brun chaud)
+- public/founder-steve.webp (monochrome brun chaud)
 
 Nouveaux :
-- app/fonts/marcellus-latin-400-normal.woff2
-- app/fonts/jost-latin-300-normal.woff2
-- app/fonts/jost-latin-400-normal.woff2
-- app/fonts/jost-latin-500-normal.woff2
-- public/hero-desktop.mp4
-- public/hero-desktop.jpg
-- public/hero-mobile.mp4
-- public/hero-mobile.jpg
-
-## Fichiers devenus inutiles (suppression facultative, le site marche même s'ils restent)
-
-- components/InkBackground.tsx
-- components/ContactButton.tsx, ContactLink.tsx, ContactModal.tsx
-- components/TalentRoster.tsx, Ticker.tsx, SocialIcons.tsx
-- public/hero-video.mp4
-- public/talents/ : mejane-01, mejane-modal, anais-02, anais-modal, clyde-03, clyde-modal, antoine-04, antoine-modal (.jpg)
+- components/TrustedBy.tsx
+- public/logos/logo-afro-nation.png
+- public/logos/logo-shein.png
+- public/logos/logo-temu.png
+- public/logos/logo-teveo.png
+- public/logos/logo-paris-fc.png
+- public/logos/logo-cure-vitamine.png
 
 ## À savoir
 
-- Les polices (Marcellus, Jost) sont dans app/fonts : plus aucun appel à Google Fonts.
-- La vidéo de fond est muette et en boucle. Écran large : hero-desktop. Téléphone : hero-mobile.
-- Pour changer la vidéo, remplacer les 4 fichiers hero-* dans public/ en gardant les mêmes noms.
+- Les logos sont gris par défaut et reprennent leurs couleurs au survol. Sur téléphone et tablette, ils sont en couleur en permanence.
+- Pour ajouter une marque : déposer son logo dans public/logos/ et ajouter une ligne à la liste BRANDS dans components/TrustedBy.tsx.
+- Le défilement s'arrête au survol, et ne démarre pas si le visiteur a demandé moins d'animations.
