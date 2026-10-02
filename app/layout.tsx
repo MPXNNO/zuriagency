@@ -1,23 +1,24 @@
 import type { Metadata } from "next";
-import { Archivo_Black, Inter, Space_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
-import InkBackground from "@/components/InkBackground";
 
-const archivo = Archivo_Black({
+// Polices hébergées avec le site (app/fonts) : aucun appel à Google Fonts.
+const marcellus = localFont({
+  src: "./fonts/marcellus-latin-400-normal.woff2",
   weight: "400",
-  subsets: ["latin"],
-  variable: "--font-archivo",
+  style: "normal",
+  variable: "--font-marcellus",
+  display: "swap",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const spaceMono = Space_Mono({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  variable: "--font-mono",
+const jost = localFont({
+  src: [
+    { path: "./fonts/jost-latin-300-normal.woff2", weight: "300", style: "normal" },
+    { path: "./fonts/jost-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/jost-latin-500-normal.woff2", weight: "500", style: "normal" },
+  ],
+  variable: "--font-jost",
+  display: "swap",
 });
 
 const SITE_URL = "https://zuriagency.fr";
@@ -74,11 +75,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr">
-      <body
-        className={`${archivo.variable} ${inter.variable} ${spaceMono.variable}`}
-      >
-        <InkBackground />
+    // les variables de police sont posées sur <html> pour être lisibles depuis :root dans globals.css
+    <html lang="fr" className={`${marcellus.variable} ${jost.variable}`}>
+      <body>
         {children}
       </body>
     </html>

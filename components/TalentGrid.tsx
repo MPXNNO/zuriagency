@@ -52,7 +52,7 @@ export default function TalentGrid() {
           <div className="tcard" key={t.name}>
             <div className="ph">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={t.photo} alt={`${t.name} — Talent Zuri Agency`} loading="lazy" />
+              <img src={t.photo} alt={`${t.name}, talent Zuri Agency`} loading="lazy" />
             </div>
             <div className="info">
               <b>{t.name}</b>

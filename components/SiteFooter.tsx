@@ -13,11 +13,12 @@ export default function SiteFooter({
   return (
     <footer>
       <div className="wrap foot-row">
-        <span>Zuri Agency</span>
+        <span className="foot-brand">
+          Zuri<span className="dot">.</span>Agency
+        </span>
         {links.map((l) =>
           l.highlight ? (
             <Link key={l.href} href={l.href} className="foot-fondateur">
-              <span className="pulse-dot" />
               {l.label}
             </Link>
           ) : (

@@ -1,47 +1,52 @@
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import HeroVideo from "@/components/HeroVideo";
+import { HeroBackdrop, HeroReelControl } from "@/components/HeroVideo";
 
 export default function Home() {
   return (
     <>
-      <SiteHeader />
-
       <section className="hero">
-        <div className="wrap">
+        <HeroBackdrop />
+        <SiteHeader />
+
+        <div className="hero-foot">
           <div className="hero-text">
             <h1>
               <span>Zuri</span>{" "}
               <span>Agency</span>
             </h1>
             <p className="hero-tagline">Influence. Strategy. Sport.</p>
-            <div className="hero-copy">
-              <p>
-                Zuri Agency est une agence créée par Steve K. Dompe, qui
-                accompagne les talents, les entrepreneurs et les entreprises
-                dans leur développement.
-              </p>
-              <p>
-                Notre ambition est simple : identifier le potentiel,
-                construire une stratégie et créer les conditions pour le
-                développer.
-              </p>
-              <p>
-                À travers trois pôles d&apos;expertise, Zuri Agency intervient
-                dans les domaines du marketing d&apos;influence, de la
-                stratégie d&apos;entreprise et du management sportif.
-              </p>
-            </div>
           </div>
+          <HeroReelControl />
+        </div>
+      </section>
 
-          <HeroVideo />
+      <section className="intro">
+        <div className="wrap hero-copy">
+          <p className="lead">
+            Zuri Agency est une agence créée par Steve K. Dompe, qui
+            accompagne les talents, les entrepreneurs et les entreprises
+            dans leur développement.
+          </p>
+          <div className="intro-cols">
+            <p>
+              Notre ambition est simple : identifier le potentiel,
+              construire une stratégie et créer les conditions pour le
+              développer.
+            </p>
+            <p>
+              À travers trois pôles d&apos;expertise, Zuri Agency intervient
+              dans les domaines du marketing d&apos;influence, de la
+              stratégie d&apos;entreprise et du management sportif.
+            </p>
+          </div>
         </div>
       </section>
 
       <section className="zuri-meaning">
         <div className="wrap zuri-meaning-grid">
           <div>
-            <div className="zuri-letters">
+            <div className="zuri-letters" aria-hidden="true">
               <span>Z</span>
               <span>U</span>
               <span>R</span>
