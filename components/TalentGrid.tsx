@@ -42,6 +42,12 @@ const TALENTS: Talent[] = [
     instagram: "https://www.instagram.com/stanley_petra/",
     tiktok: "https://www.tiktok.com/@stanley_petra10",
   },
+  {
+    name: "Lynn",
+    photo: "/talents/talent-07.jpg",
+    instagram: "https://www.instagram.com/lynn.u.sate/",
+    tiktok: "https://www.tiktok.com/@lynn.anastasia1?lang=fr",
+  },
 ];
 
 export default function TalentGrid() {
