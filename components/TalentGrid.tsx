@@ -1,8 +1,8 @@
 type Talent = {
   name: string;
   photo: string;
-  instagram: string;
-  tiktok: string;
+  instagram?: string;
+  tiktok?: string;
 };
 
 const TALENTS: Talent[] = [
@@ -48,6 +48,11 @@ const TALENTS: Talent[] = [
     instagram: "https://www.instagram.com/lynn.u.sate/",
     tiktok: "https://www.tiktok.com/@lynn.anastasia1?lang=fr",
   },
+  {
+    name: "Sisters Crew",
+    photo: "/talents/talent-08.jpg",
+    tiktok: "https://www.tiktok.com/@thecrewsisters.4",
+  },
 ];
 
 export default function TalentGrid() {
@@ -63,12 +68,16 @@ export default function TalentGrid() {
             <div className="info">
               <b>{t.name}</b>
               <div className="social">
-                <a href={t.instagram} target="_blank" rel="noopener noreferrer">
-                  Instagram
-                </a>
-                <a href={t.tiktok} target="_blank" rel="noopener noreferrer">
-                  TikTok
-                </a>
+                {t.instagram && (
+                  <a href={t.instagram} target="_blank" rel="noopener noreferrer">
+                    Instagram
+                  </a>
+                )}
+                {t.tiktok && (
+                  <a href={t.tiktok} target="_blank" rel="noopener noreferrer">
+                    TikTok
+                  </a>
+                )}
               </div>
             </div>
           </div>

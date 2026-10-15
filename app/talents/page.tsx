@@ -7,7 +7,7 @@ import TalentGrid from "@/components/TalentGrid";
 export const metadata: Metadata = {
   title: "Talents",
   description:
-    "Découvrez le roster de talents accompagnés par Zuri Agency : Antoine, Clyde, Anaïs, Mejane, Marlene, Stanley et Lynn.",
+    "Découvrez le roster de talents accompagnés par Zuri Agency : Antoine, Clyde, Anaïs, Mejane, Marlene, Stanley, Lynn et les Sisters Crew.",
 };
 
 export default function TalentsPage() {
