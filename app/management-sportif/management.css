@@ -1,0 +1,74 @@
+/* ---------- page Management sportif : l'analyse vidéo ---------- */
+.sp-w{position:relative;height:560svh;background:#16110e}
+.sp-st{position:sticky;top:0;height:100svh;overflow:hidden;background:#16110e;color:var(--milk);display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto;gap:12px;padding:calc(env(safe-area-inset-top,0px) + 84px) max(clamp(14px,3vw,40px),env(safe-area-inset-right,0px)) max(18px,env(safe-area-inset-bottom,0px)) max(clamp(14px,3vw,40px),env(safe-area-inset-left,0px))}
+.sp-top{display:flex;align-items:center;gap:10px;white-space:nowrap;min-width:0;overflow:hidden;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(251,248,243,.6)}
+.sp-top .rec{width:9px;height:9px;border-radius:50%;background:var(--orange);animation:spRec 1.2s infinite}
+@keyframes spRec{50%{opacity:.2}}
+.sp-top .tc{margin-left:auto;font-variant-numeric:tabular-nums;font-size:14px;color:var(--milk)}
+.sp-top .cam{display:flex;gap:6px}
+.sp-top .cam span{border:1px solid rgba(251,248,243,.25);border-radius:6px;padding:3px 8px;font-size:10px}
+.sp-top .cam span.on{background:var(--orange);border-color:var(--orange);color:#fff}
+@media (max-width:700px){.sp-top .cam{display:none}}
+.sp-scr{position:relative;border-radius:16px;overflow:hidden;background:repeating-linear-gradient(90deg,#2a201b 0 10%,#2e241e 10% 20%);box-shadow:inset 0 0 0 1px rgba(251,248,243,.08)}
+.sp-scr canvas{position:absolute;inset:0;width:100%;height:100%}
+.sp-scr::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.06) 0 2px,transparent 2px 4px);mix-blend-mode:multiply}
+.sp-ann{position:absolute;left:clamp(12px,2vw,24px);bottom:clamp(12px,2vw,24px);right:clamp(12px,2vw,24px);max-width:600px;background:rgba(22,17,14,.84);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-left:3px solid var(--orange);border-radius:12px;padding:14px 18px;z-index:3;transition:opacity .4s,transform .5s var(--pop)}
+.sp-ann.off{opacity:0;transform:translateY(14px)}
+.sp-ann small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--clay-light);font-variant-numeric:tabular-nums}
+.sp-ann b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(20px,2.4vw,32px);line-height:1.2;margin-top:4px}
+.sp-ann b.swap{animation:spSw .5s var(--pop)}
+@keyframes spSw{from{opacity:0;transform:translateY(12px)}}
+.sp-ov{position:absolute;inset:0;z-index:4;display:grid;align-content:center;padding:clamp(20px,5vw,72px);background:linear-gradient(90deg,rgba(22,17,14,.96) 45%,rgba(22,17,14,.55));transition:opacity .6s,transform .8s var(--ease)}
+.sp-ov.off{opacity:0;pointer-events:none;transform:translateY(-16px)}
+.sp-ov.wait{opacity:0;pointer-events:none;transform:translateY(16px)}
+.sp-ov .eyebrow{color:var(--clay-light)}
+.sp-ov h1{font-size:clamp(36px,5.6vw,92px);line-height:1.03;max-width:13em;margin:16px 0 22px}
+.sp-ov h1 .w{display:inline-block;opacity:0;transform:translateY(.45em) rotate(2deg);animation:wIn .9s var(--pop) forwards}
+.sp-ov.a p{color:rgba(251,248,243,.75);max-width:40em;font-size:clamp(15px,1.3vw,19px);opacity:0;animation:wIn 1s var(--ease) 1.3s forwards}
+.sp-ov.b{justify-items:center;text-align:center;background:radial-gradient(closest-side,rgba(22,17,14,.95) 60%,rgba(22,17,14,.4))}
+.sp-ov.b h2{font-size:clamp(26px,3.2vw,48px);line-height:1.18;max-width:20em;margin-top:14px}
+.sp-play{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(251,248,243,.7)}
+.sp-play i{width:38px;height:38px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-style:normal;color:#fff;font-size:13px;animation:spPulse 1.8s infinite}
+@keyframes spPulse{70%{box-shadow:0 0 0 14px rgba(255,90,31,0)}0%{box-shadow:0 0 0 0 rgba(255,90,31,.5)}}
+.sp-tl{position:relative;height:40px;margin-left:58px}
+.sp-tl .tr{position:absolute;left:0;right:0;top:18px;height:4px;border-radius:4px;background:rgba(251,248,243,.15)}
+.sp-tl .tr i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--orange);border-radius:4px}
+.sp-tl .mk{position:absolute;top:10px;width:20px;height:20px;margin-left:-10px;border-radius:5px;background:#16110e;border:2px solid rgba(251,248,243,.4);font:500 10px var(--body);display:grid;place-items:center;color:var(--milk);padding:0;cursor:pointer;transition:background .3s,border-color .3s,transform .3s var(--pop)}
+.sp-tl .mk:hover{transform:scale(1.2)}
+.sp-tl .mk.on{background:var(--orange);border-color:var(--orange)}
+.sp-tl .ph{position:absolute;top:4px;bottom:4px;width:2px;margin-left:-1px;background:#fff;left:0;box-shadow:0 0 8px #fff}
+
+.sp-note{background:#16110e;color:var(--milk);padding-block:clamp(60px,8vw,120px)}
+.sp-note .wrap{display:grid;gap:18px;max-width:1100px}
+.sp-note .eyebrow{color:var(--clay-light)}
+.sp-note p{font-family:var(--display);font-size:clamp(26px,3.4vw,50px);line-height:1.25}
+.sp-note p em{font-style:normal;color:var(--orange)}
+.sp-rdv{background:var(--sand);padding-block:clamp(60px,8vw,120px)}
+.sp-rdv .box{position:relative;overflow:hidden;background:var(--espresso);color:var(--milk);border-radius:28px;padding:clamp(28px,5vw,64px);display:grid;gap:16px}
+.sp-rdv .box::after{content:"";position:absolute;width:min(60vw,560px);aspect-ratio:1;right:-14%;top:-50%;border-radius:50%;background:radial-gradient(circle,rgba(255,90,31,.45),transparent 62%);animation:spGlow 7s ease-in-out infinite alternate}
+@keyframes spGlow{to{transform:translate(-10%,16%) scale(1.12)}}
+.sp-rdv .eyebrow{color:var(--clay-light);position:relative;z-index:1}
+.sp-rdv h2{font-size:clamp(32px,4.4vw,64px);line-height:1.05;max-width:16em;position:relative;z-index:1}
+.sp-rdv p{color:rgba(251,248,243,.72);max-width:36em;position:relative;z-index:1}
+.sp-btn{justify-self:start;display:inline-flex;align-items:center;gap:10px;border:0;border-radius:999px;background:var(--orange);color:#fff;padding:18px 26px;font:500 13px var(--body);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;position:relative;z-index:1;transition:transform .35s var(--pop),background .3s}
+.sp-btn:hover{transform:translateY(-3px);background:#ff6c36}
+.sp-md{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:16px;background:rgba(36,28,23,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .3s}
+.sp-md.on{opacity:1;pointer-events:auto}
+.sp-card{position:relative;width:min(100%,540px);max-height:92svh;overflow:auto;background:var(--milk);border-radius:24px;padding:clamp(22px,4vw,34px);transform:translateY(30px) scale(.95);transition:transform .5s var(--pop)}
+.sp-md.on .sp-card{transform:none}
+.sp-card h3{font-size:clamp(26px,3vw,34px);line-height:1.1;margin:10px 0 8px}
+.sp-card .sub{color:var(--cocoa);font-size:15px;margin-bottom:8px}
+.sp-card label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--clay);margin:12px 0 6px}
+.sp-card input,.sp-card textarea,.sp-card select{width:100%;font:inherit;font-weight:300;font-size:16px;color:var(--espresso);background:var(--sand);border:1px solid transparent;border-radius:12px;padding:12px 14px}
+.sp-card input:focus,.sp-card textarea:focus,.sp-card select:focus{outline:none;border-color:var(--orange)}
+.sp-card textarea{min-height:90px;resize:vertical}
+.sp-card .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 12px}
+@media (max-width:520px){.sp-card .row{grid-template-columns:minmax(0,1fr)}}
+.sp-card .x{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:none;cursor:pointer;font-size:14px}
+.sp-card .sp-btn{width:100%;justify-content:center;margin-top:18px}
+.sp-card .er{color:#B4441B;font-size:14px;min-height:1.2em;margin-top:10px}
+.sp-card .ok{display:none;text-align:center;padding:26px 0 10px}
+.sp-card .ok b{display:block;font-family:var(--display);font-weight:400;font-size:32px;margin:10px 0}
+.sp-card .ok p{color:var(--cocoa)}
+.sp-card.sent form{display:none}.sp-card.sent .ok{display:block}
+@media (prefers-reduced-motion:reduce){.sp-ov h1 .w,.sp-ov.a p{animation-duration:.01s}}

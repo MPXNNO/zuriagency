@@ -1,32 +1,27 @@
 import type { Metadata } from "next";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
-import PageHeader from "@/components/PageHeader";
-import TalentGrid from "@/components/TalentGrid";
+import TalentsWall from "@/components/TalentsWall";
+import { TALENTS } from "@/lib/talents";
 
 export const metadata: Metadata = {
-  title: "Talents",
+  title: "Nos talents et influenceurs",
   description:
-    "Découvrez le roster de talents accompagnés par Zuri Agency : Antoine, Clyde, Anaïs, Mejane, Marlene, Stanley, Lynn et les Sisters Crew.",
+    "Le roster de Zuri Agency : des talents et influenceurs mode, beauté, lifestyle, humour et sport. Marques, trouvez le bon profil pour votre campagne. Talents, rejoignez l'agence.",
+  alternates: { canonical: "/talents" },
+  openGraph: { url: "/talents", title: "Nos talents et influenceurs | Zuri Agency" },
 };
 
 export default function TalentsPage() {
   return (
-    <>
-      <SiteHeader />
-
-      <PageHeader eyebrow="Talents" title="Notre roster">
-        Un roster resserré : chaque talent profite de la même attention, à
-        chaque étape de la collaboration.
-      </PageHeader>
-
-      <section className="block">
-        <div className="wrap">
-          <TalentGrid />
-        </div>
-      </section>
-
-      <SiteFooter />
-    </>
+    <main>
+      <TalentsWall />
+      <h2 className="sr-only">Les talents représentés par Zuri Agency</h2>
+      <ul className="sr-only">
+        {TALENTS.map((t) => (
+          <li key={t.name}>
+            {t.name} : {t.universes.join(", ")}
+          </li>
+        ))}
+      </ul>
+    </main>
   );
 }

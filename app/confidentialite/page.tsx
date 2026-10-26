@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/confidentialite" },
   title: "Politique de confidentialité",
   description:
     "Comment Zuri Agency collecte, utilise et protège vos données lorsque vous nous contactez.",
@@ -11,9 +10,7 @@ export const metadata: Metadata = {
 
 export default function ConfidentialitePage() {
   return (
-    <>
-      <SiteHeader />
-
+    <main className="legal-page">
       <PageHeader
         eyebrow="Politique de confidentialité"
         title="Politique de confidentialité"
@@ -78,13 +75,6 @@ export default function ConfidentialitePage() {
           </div>
         </div>
       </section>
-
-      <SiteFooter
-        links={[
-          { href: "/mentions-legales", label: "Mentions légales" },
-          { href: "/", label: "Retour à l'accueil" },
-        ]}
-      />
-    </>
+    </main>
   );
 }

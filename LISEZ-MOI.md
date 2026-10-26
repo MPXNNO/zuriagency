@@ -1,24 +1,34 @@
-# Ajout du bloc « Ils nous font confiance » et photo du fondateur teintée
+# Refonte « dynamique » du site Zuri Agency (octobre 2026)
 
-## Fichiers à envoyer sur GitHub (mêmes chemins)
+Le site reprend la maquette validée page par page : notification d'entrée avec carillon, musique d'ambiance sur tout le site, légende, vidéo qui devient l'avatar, stories des pôles, traduction de « Zuri », mur infini des talents, checklist stratégie, onde du marketing d'influence, analyse vidéo du management sportif, nuit étoilée de Nos collaborations, carte postale du Contact, lettre du fondateur, menu « notifications » et fenêtre « Nous contacter ».
 
-Modifiés :
-- app/page.tsx (le bloc est ajouté après « Que veut dire Zuri ? »)
-- app/globals.css
-- public/founder-steve.jpg (monochrome brun chaud)
-- public/founder-steve.webp (monochrome brun chaud)
+## Mettre en ligne
 
-Nouveaux :
-- components/TrustedBy.tsx
-- public/logos/logo-afro-nation.png
-- public/logos/logo-shein.png
-- public/logos/logo-temu.png
-- public/logos/logo-teveo.png
-- public/logos/logo-paris-fc.png
-- public/logos/logo-cure-vitamine.png
+Le plus simple : remplacer tout le projet par le contenu du zip (sans `node_modules` ni `.next`), puis `npm ci` et `npm run build` sur l'hébergement.
 
-## À savoir
+Si tu passes par l'envoi de fichiers sur GitHub, il faut aussi **supprimer** ces anciens fichiers (ils ne sont plus utilisés) :
 
-- Les logos sont gris par défaut et reprennent leurs couleurs au survol. Sur téléphone et tablette, ils sont en couleur en permanence.
-- Pour ajouter une marque : déposer son logo dans public/logos/ et ajouter une ligne à la liste BRANDS dans components/TrustedBy.tsx.
-- Le défilement s'arrête au survol, et ne démarre pas si le visiteur a demandé moins d'animations.
+- `components/` : ContactButton, ContactForm, ContactLink, ContactModal, HeroVideo, InkBackground, RdvModal, SiteFooter, SiteHeader, SocialIcons, TalentGrid, TalentRoster, Ticker, TrustedBy (`.tsx`)
+- à la racine : hero-desktop.jpg, hero-desktop.mp4, hero-mobile.jpg, hero-mobile.mp4
+- `public/` : founder-steve.jpg, founder-steve.webp, hero-desktop.jpg, hero-desktop.mp4, hero-mobile.jpg, hero-mobile.mp4, hero-video.mp4, tout le dossier `public/talents/`, et les logos en `.png` de `public/logos/` (remplacés par des `.webp`)
+
+## Variables d'environnement (inchangées)
+
+- `RESEND_API_KEY` : obligatoire pour recevoir les messages
+- `CONTACT_TO_EMAIL` (par défaut contact@zuriagency.fr) et `CONTACT_FROM_EMAIL` (facultatives)
+
+Tous les formulaires envoient vers `/api/contact` : la publication (accueil et fenêtre du pied de page), la carte postale (/contact), et les rendez-vous offerts (stratégie et sport). L'objet du mail indique le type de demande.
+
+## Où modifier quoi
+
+- Textes des pages : `components/markup/*.tsx` (un fichier par page) ; talents : `lib/talents.ts` ; menu : `lib/site.ts`
+- Animations : `components/fx/*.tsx` ; en-tête, menu, pied de page, fenêtre contact, bouton son : `components/SiteShell.tsx`
+- Styles : `app/globals.css` + un fichier `.css` par page de pôle
+- Musique : `public/audio/zuri-ambiance.mp3` ; vidéos d'accueil : `public/media/`
+
+## Référencement et vitesse
+
+- Titre et description propres à chaque page, pensés pour les marques (« trouver des influenceurs ») et les talents (« se faire représenter »), balises Open Graph, adresse canonique.
+- Données structurées (agence, fondateur, trois pôles), `sitemap.xml` et `robots.txt` générés automatiquement.
+- Images en WebP à la bonne taille, vidéos d'accueil allégées (2,4 Mo et 2,8 Mo au lieu de 7 et 5), musique et vidéo téléchargées seulement quand on en a besoin, polices hébergées sur le site, médias mis en cache un an.
+- Après la mise en ligne : déclarer `https://zuriagency.fr/sitemap.xml` dans Google Search Console.

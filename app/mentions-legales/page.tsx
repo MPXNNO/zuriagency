@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/mentions-legales" },
   title: "Mentions légales",
   description:
     "Informations relatives à l'éditeur et à l'hébergement du site zuriagency.fr.",
@@ -11,9 +10,7 @@ export const metadata: Metadata = {
 
 export default function MentionsLegalesPage() {
   return (
-    <>
-      <SiteHeader />
-
+    <main className="legal-page">
       <PageHeader eyebrow="Mentions légales" title="Mentions légales">
         Informations relatives à l&apos;éditeur et à l&apos;hébergement du
         site zuriagency.fr.
@@ -76,13 +73,6 @@ export default function MentionsLegalesPage() {
           </div>
         </div>
       </section>
-
-      <SiteFooter
-        links={[
-          { href: "/confidentialite", label: "Politique de confidentialité" },
-          { href: "/", label: "Retour à l'accueil" },
-        ]}
-      />
-    </>
+    </main>
   );
 }
