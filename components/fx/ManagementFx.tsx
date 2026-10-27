@@ -4,7 +4,7 @@
 // chaque repère zoome sur le joueur suivi et affiche un point d'accompagnement.
 
 import { useEffect } from "react";
-import { createScope, EMAIL_RE, prefersReducedMotion, sendContact } from "@/lib/scope";
+import { createScope, EMAIL_RE, prefersReducedMotion, sendContact, track } from "@/lib/scope";
 
 const A = [
   "Analyse du parcours et des objectifs du joueur",
@@ -236,6 +236,7 @@ export default function ManagementFx() {
         er.textContent = fail;
         return;
       }
+      track("Rendez-vous demandé", { pole: "Management sportif" });
       f.reset();
       card.classList.add("sent");
       card.scrollTop = 0;

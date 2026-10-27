@@ -138,3 +138,12 @@ export async function sendContact(payload: Record<string, string>): Promise<stri
     return "Connexion impossible. Vérifiez votre réseau et réessayez.";
   }
 }
+
+/** Compte une action dans les statistiques (ex. un message envoyé). Sans effet si les statistiques ne sont pas branchées. */
+export function track(name: string, data?: Record<string, string>) {
+  try {
+    (window as unknown as { umami?: { track: (n: string, d?: Record<string, string>) => void } }).umami?.track(name, data);
+  } catch {
+    /* rien */
+  }
+}

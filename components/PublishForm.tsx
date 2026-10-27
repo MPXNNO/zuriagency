@@ -4,7 +4,7 @@
 // Utilisé en fin d'accueil et dans la fenêtre « Nous contacter » du pied de page.
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { confetti, EMAIL_RE, prefersReducedMotion, sendContact } from "@/lib/scope";
+import { confetti, EMAIL_RE, prefersReducedMotion, sendContact, track } from "@/lib/scope";
 
 export const PROFILES = ["Une marque", "Un talent", "Un média", "Autre"] as const;
 
@@ -94,6 +94,7 @@ export default function PublishForm({ idSuffix = "", preset, resetKey, autoFocus
       setState("idle");
       return;
     }
+    track("Message envoyé", { profil: profile, formulaire: "publication" });
     const reduce = prefersReducedMotion();
     setState("fly");
     const host = (rootRef.current?.closest(".closing, .sheet") as HTMLElement) || rootRef.current!;

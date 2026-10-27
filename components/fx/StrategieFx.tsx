@@ -3,7 +3,7 @@
 // Page Stratégie d'entreprise : « la checklist ».
 
 import { useEffect } from "react";
-import { confetti, createScope, EMAIL_RE, prefersReducedMotion, sendContact } from "@/lib/scope";
+import { confetti, createScope, EMAIL_RE, prefersReducedMotion, sendContact, track } from "@/lib/scope";
 
 export default function StrategieFx() {
   useEffect(() => {
@@ -119,6 +119,7 @@ export default function StrategieFx() {
         er.textContent = fail;
         return;
       }
+      track("Rendez-vous demandé", { pole: "Stratégie d'entreprise" });
       f.reset();
       card.classList.add("sent");
       card.scrollTop = 0;

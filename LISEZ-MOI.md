@@ -32,3 +32,9 @@ Tous les formulaires envoient vers `/api/contact` : la publication (accueil et f
 - Données structurées (agence, fondateur, trois pôles), `sitemap.xml` et `robots.txt` générés automatiquement.
 - Images en WebP à la bonne taille, vidéos d'accueil allégées (2,4 Mo et 2,8 Mo au lieu de 7 et 5), musique et vidéo téléchargées seulement quand on en a besoin, polices hébergées sur le site, médias mis en cache un an.
 - Après la mise en ligne : déclarer `https://zuriagency.fr/sitemap.xml` dans Google Search Console.
+
+## Statistiques de visite (Umami, gratuit)
+
+Le site est prêt à compter les visites : nombre de visiteurs, pages vues, pages préférées, d'où viennent les gens (Google, Instagram…), téléphone ou ordinateur, pays. Il compte aussi les **messages envoyés** (avec le profil : marque, talent, média…) et les **rendez-vous demandés** (stratégie ou sport). Pas de cookie, donc pas de bandeau à afficher.
+
+C'est déjà branché sur ton compte Umami (identifiant aa5999ab-f04c-4233-9135-a70885980836, écrit dans `components/Analytics.tsx`) : aucune variable à ajouter. Les visites apparaissent dans le tableau de bord Umami dès que cette version du site est en ligne.

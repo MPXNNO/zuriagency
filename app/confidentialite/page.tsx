@@ -72,6 +72,16 @@ export default function ConfidentialitePage() {
                 de traçage tiers.
               </p>
             </div>
+            <div>
+              <h3>Mesure d&apos;audience</h3>
+              <p>
+                Pour savoir combien de personnes visitent le site et quelles
+                pages les intéressent, nous utilisons Umami, un outil de
+                statistiques sans cookie qui ne collecte aucune donnée
+                permettant de vous identifier. Les statistiques sont anonymes
+                et conservées six mois.
+              </p>
+            </div>
           </div>
         </div>
       </section>

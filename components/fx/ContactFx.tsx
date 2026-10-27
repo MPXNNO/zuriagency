@@ -4,7 +4,7 @@
 // et la carte s'envole.
 
 import { useEffect } from "react";
-import { confetti, createScope, EMAIL_RE, prefersReducedMotion, sendContact } from "@/lib/scope";
+import { confetti, createScope, EMAIL_RE, prefersReducedMotion, sendContact, track } from "@/lib/scope";
 
 export default function ContactFx() {
   useEffect(() => {
@@ -53,6 +53,7 @@ export default function ContactFx() {
         er.textContent = fail;
         return;
       }
+      track("Message envoyé", { profil: prof!.textContent || "", formulaire: "carte postale" });
       c.classList.add("sent");
       S.timeout(() => w.classList.add("go"), reduce ? 0 : 550);
       S.timeout(() => w.classList.add("gone"), reduce ? 0 : 950);

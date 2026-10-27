@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import SiteShell from "@/components/SiteShell";
+import Analytics from "@/components/Analytics";
 import { SITE_URL, INSTAGRAM, EMAIL } from "@/lib/site";
 import "./globals.css";
 
@@ -135,6 +136,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }} />
         <SiteShell>{children}</SiteShell>
+        <Analytics />
       </body>
     </html>
   );
