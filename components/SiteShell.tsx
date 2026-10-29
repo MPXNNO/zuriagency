@@ -19,7 +19,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname() || "/";
   const isHome = pathname === "/";
   const [menu, setMenu] = useState(false);
-  const [sheet, setSheet] = useState<{ open: boolean; preset?: string; key: number }>({ open: false, key: 0 });
+  const [sheet, setSheet] = useState<{ open: boolean; preset?: string; msg?: string; key: number }>({ open: false, key: 0 });
   const [sheetMounted, setSheetMounted] = useState(false);
   const [soundOn, setSoundOn] = useState(false);
   const [soundHidden, setSoundHidden] = useState(isHome);
@@ -72,7 +72,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
   }, [isHome]);
 
   // fenêtre « Nous contacter » : s'ouvre en cercle depuis le bouton cliqué
-  const openSheet = useCallback((from: HTMLElement, preset?: string) => {
+  const openSheet = useCallback((from: HTMLElement, preset?: string, msg?: string) => {
     lastFocus.current = from;
     const r = from.getBoundingClientRect();
     const el = sheetRef.current;
@@ -84,7 +84,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
       s.style.setProperty("--oy", Math.min(innerHeight, Math.max(0, r.top + r.height / 2)) + "px");
       s.hidden = false;
       void s.offsetWidth;
-      setSheet((p) => ({ open: true, preset, key: p.key + 1 }));
+      setSheet((p) => ({ open: true, preset, msg, key: p.key + 1 }));
       document.body.classList.add("locked");
     });
   }, []);
@@ -104,7 +104,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
       if (!a) return;
       e.preventDefault();
       setMenu(false);
-      openSheet(a, a.dataset.who);
+      openSheet(a, a.dataset.who, a.dataset.msg);
     };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape" && sheetRef.current && !sheetRef.current.hidden) closeSheet();
@@ -160,8 +160,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
           >
             <span className="bell">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
-                <path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4z" />
-                <path d="M10 20a2 2 0 0 0 4 0" />
+                <path d="M4 7h16M4 12h16M4 17h11" />
               </svg>
             </span>
             <span className="bx">
@@ -260,7 +259,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
           ✕
         </button>
         <div className="sheet-body wrap">
-          {sheetMounted && <PublishForm idSuffix="-o" preset={sheet.preset} resetKey={sheet.key} autoFocus />}
+          {sheetMounted && <PublishForm idSuffix="-o" preset={sheet.preset} presetMessage={sheet.msg} resetKey={sheet.key} autoFocus />}
         </div>
       </div>
 

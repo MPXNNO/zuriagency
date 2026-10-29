@@ -40,7 +40,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--clay);outline-offse
 .burger{display:none;position:relative;background:none;border:0;color:inherit;width:44px;height:44px;padding:0;cursor:pointer;justify-self:end;place-items:center}
 .burger .bell,.burger .bx{position:absolute;inset:0;display:grid;place-items:center;transition:opacity .3s,transform .45s var(--ease)}
 .burger .bell svg{width:22px;height:22px;transform-origin:50% 10%}
-.burger:hover .bell svg{animation:bellring .7s ease}
+.burger .bell svg{transition:transform .3s var(--ease)}.burger:hover .bell svg{transform:scaleX(1.12)}
 @keyframes bellring{20%{transform:rotate(16deg)}40%{transform:rotate(-12deg)}60%{transform:rotate(8deg)}80%{transform:rotate(-4deg)}}
 .burger .bx{opacity:0;transform:rotate(-90deg) scale(.6)}
 .burger .bx svg{width:22px;height:22px}

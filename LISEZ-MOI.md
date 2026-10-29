@@ -1,6 +1,6 @@
 # Refonte « dynamique » du site Zuri Agency (octobre 2026)
 
-Le site reprend la maquette validée page par page : notification d'entrée avec carillon, musique d'ambiance sur tout le site, légende, vidéo qui devient l'avatar, stories des pôles, traduction de « Zuri », mur infini des talents, checklist stratégie, onde du marketing d'influence, analyse vidéo du management sportif, nuit étoilée de Nos collaborations, carte postale du Contact, lettre du fondateur, menu « notifications » et fenêtre « Nous contacter ».
+Le site reprend la maquette validée page par page : notification d'entrée avec carillon, musique d'ambiance sur tout le site, légende, vidéo qui devient l'avatar, stories des pôles, traduction de « Zuri », planche contact des talents (avec leurs liens Instagram et TikTok), checklist stratégie, onde du marketing d'influence, analyse vidéo du management sportif, nuit étoilée de Nos collaborations, carte postale du Contact, lettre du fondateur, menu « notifications » et fenêtre « Nous contacter ».
 
 ## Mettre en ligne
 
@@ -8,7 +8,7 @@ Le plus simple : remplacer tout le projet par le contenu du zip (sans `node_modu
 
 Si tu passes par l'envoi de fichiers sur GitHub, il faut aussi **supprimer** ces anciens fichiers (ils ne sont plus utilisés) :
 
-- `components/` : ContactButton, ContactForm, ContactLink, ContactModal, HeroVideo, InkBackground, RdvModal, SiteFooter, SiteHeader, SocialIcons, TalentGrid, TalentRoster, Ticker, TrustedBy (`.tsx`)
+- `components/` : TalentsWall (s'il est présent), ContactButton, ContactForm, ContactLink, ContactModal, HeroVideo, InkBackground, RdvModal, SiteFooter, SiteHeader, SocialIcons, TalentGrid, TalentRoster, Ticker, TrustedBy (`.tsx`)
 - à la racine : hero-desktop.jpg, hero-desktop.mp4, hero-mobile.jpg, hero-mobile.mp4
 - `public/` : founder-steve.jpg, founder-steve.webp, hero-desktop.jpg, hero-desktop.mp4, hero-mobile.jpg, hero-mobile.mp4, hero-video.mp4, tout le dossier `public/talents/`, et les logos en `.png` de `public/logos/` (remplacés par des `.webp`)
 

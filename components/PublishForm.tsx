@@ -13,12 +13,14 @@ type Props = {
   idSuffix?: string;
   /** profil présélectionné (ex. bouton « Vous êtes une marque ») */
   preset?: string;
+  /** message prérempli (ex. la sélection de talents de la planche contact) */
+  presetMessage?: string;
   /** change à chaque ouverture de la fenêtre pour remettre le formulaire à zéro */
   resetKey?: number;
   autoFocus?: boolean;
 };
 
-export default function PublishForm({ idSuffix = "", preset, resetKey, autoFocus }: Props) {
+export default function PublishForm({ idSuffix = "", preset, presetMessage, resetKey, autoFocus }: Props) {
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
   const [email, setEmail] = useState("");
@@ -44,7 +46,8 @@ export default function PublishForm({ idSuffix = "", preset, resetKey, autoFocus
 
   useEffect(() => {
     if (preset) setProfile(preset);
-  }, [preset, resetKey]);
+    if (presetMessage) setMsg(presetMessage);
+  }, [preset, presetMessage, resetKey]);
 
   useEffect(() => {
     if (resetKey === undefined) return;
@@ -52,7 +55,7 @@ export default function PublishForm({ idSuffix = "", preset, resetKey, autoFocus
       setFirst("");
       setLast("");
       setEmail("");
-      setMsg("");
+      setMsg(presetMessage || "");
       setErr("");
       setState("idle");
       if (!preset) setProfile("");
