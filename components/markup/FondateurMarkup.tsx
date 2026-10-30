@@ -19,7 +19,7 @@ export default function FondateurMarkup() {
           <p><mark>C'est précisément pour cela</mark> que j'ai voulu créer Zuri Agency.</p>
           <p>Zuri, c'est avant tout <mark>une agence qui croit au potentiel</mark>. Nous voulons accompagner des profils différents, des parcours différents et des personnalités différentes, tout en leur permettant d'accéder à des opportunités à la hauteur de leur valeur.</p>
           <p>Notre rôle n'est pas seulement de mettre en relation des talents avec des marques ou des entreprises. Nous voulons construire des parcours, développer des stratégies et créer des opportunités <mark>qui s'inscrivent dans la durée</mark>.</p>
-          <p>Cette vision dépasse le marketing d'influence. Elle s'étend également à l'accompagnement stratégique des entreprises et au management sportif, car je suis convaincu qu'un même principe s'applique à tous les domaines : le potentiel a besoin d'être <mark>identifié, structuré et accompagné</mark> pour pouvoir réellement s'exprimer.</p>
+          <p>Cette vision dépasse le marketing d'influence. Elle s'étend également à la stratégie marketing des marques et des entreprises, car je suis convaincu qu'un même principe s'applique à tous les domaines : le potentiel a besoin d'être <mark>identifié, structuré et accompagné</mark> pour pouvoir réellement s'exprimer.</p>
           <p>Je veux construire une agence <mark>moderne, ambitieuse et ouverte</mark>, qui puisse contribuer à faire évoluer les représentations et les opportunités dans notre société.</p>
           <p>Zuri Agency est <mark>née de cette ambition</mark>.</p>
         <div className="signoff" id="signoff">

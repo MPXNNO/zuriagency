@@ -10,7 +10,6 @@ export const NAV = [
   { href: "/talents", label: "Talents", line: "Notre roster" },
   { href: "/strategie-entreprise", label: "Stratégie d'entreprise", line: "Transformer une ambition en stratégie." },
   { href: "/marketing-influence", label: "Marketing d'influence", line: "Transformer l'influence en véritable levier de développement." },
-  { href: "/management-sportif", label: "Management sportif", line: "Accompagner les joueurs et les familles au-delà du terrain." },
   { href: "/collaborations", label: "Nos collaborations", line: "Ça brille déjà. On finit d'astiquer." },
   { href: "/fondateur", label: "Le mot du fondateur", line: "« Le talent n'a pas de couleur… »" },
 ];

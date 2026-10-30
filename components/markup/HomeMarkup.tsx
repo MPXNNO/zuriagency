@@ -28,7 +28,7 @@ export default function HomeMarkup() {
       </div>
       <div className="hero-title">
         <div className="cap-post" id="capPost"><span className="av">Z.</span><span>zuri.agency_ <small>· nouvelle publication</small></span></div>
-        <h1><span className="sr-only">Zuri Agency, agence de marketing d&apos;influence, de stratégie d&apos;entreprise et de management sportif à Paris</span><span className="cap-line" id="capLine" aria-hidden="true"></span></h1>
+        <h1><span className="sr-only">Zuri Agency, agence de marketing d&apos;influence et de stratégie marketing à Paris</span><span className="cap-line" id="capLine" aria-hidden="true"></span></h1>
         <p className="tagline" id="capTags" aria-hidden="true"></p>
       </div>
       <div className="reel">
@@ -51,12 +51,11 @@ export default function HomeMarkup() {
         <ul className="hls">
           <li className="hl-it"><a href="#poles"><span>I</span>Influence</a></li>
           <li className="hl-it"><a href="#poles"><span>S</span>Stratégie</a></li>
-          <li className="hl-it"><a href="#poles"><span>S</span>Sport</a></li>
         </ul>
         <div className="pin">
           <small><svg viewBox="0 0 16 16" fill="currentColor"><path d="M10 1l5 5-2 1-3 3 .5 3.5L9 15l-3-3-4 4-1-1 4-4-3-3 1.5-1.5L7 7l3-3z" /></svg>Épinglé · Notre ambition</small>
           <p>Notre ambition est simple : identifier le potentiel, construire une stratégie et créer les conditions pour le développer.</p>
-          <p>À travers trois pôles d'expertise, Zuri Agency intervient dans les domaines du marketing d'influence, de la stratégie d'entreprise et du management sportif.</p>
+          <p>À travers deux pôles d'expertise, Zuri Agency intervient dans les domaines du marketing d'influence et de la stratégie marketing des marques et des entreprises.</p>
         </div>
       </div>
     </div>
@@ -64,7 +63,7 @@ export default function HomeMarkup() {
 
   <section className="poles" id="poles">
     <div className="wrap">
-      <div className="sec-head"><div><div className="eyebrow">Trois pôles d'expertise</div></div></div>
+      <div className="sec-head"><div><div className="eyebrow">Deux pôles d'expertise</div></div></div>
       <div className="stories" id="stories">
         <div className="st" data-k="0" role="button" tabIndex={0} aria-label="Marketing d'influence">
           <div className="art"><svg viewBox="0 0 200 300">
@@ -91,21 +90,7 @@ export default function HomeMarkup() {
           <div className="who"><span>Z.</span>zuri.agency_ <small>· pôle</small></div>
           <div className="txt"><h3>Stratégie d'entreprise</h3><p>Transformer une ambition en stratégie.</p><Link className="go" href="/strategie-entreprise">Découvrir le pôle <svg viewBox="0 0 18 18" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M2 9h13M10 4l5 5-5 5" /></svg></Link></div>
         </div>
-        <div className="st" data-k="2" role="button" tabIndex={0} aria-label="Management sportif">
-          <div className="art"><svg viewBox="0 0 200 300">
-            <rect className="draw" style={{'--len': '700'} as CSSProperties} x="30" y="30" width="140" height="240" rx="3" />
-            <path className="draw" style={{'--len': '140'} as CSSProperties} d="M30 150h140" />
-            <circle className="draw" style={{'--len': '160'} as CSSProperties} cx="100" cy="150" r="24" />
-            <path className="draw" style={{'--len': '200'} as CSSProperties} d="M65 30v38h70V30M65 270v-38h70v38" />
-            <path id="ballPath" d="M100 230 C60 200 140 170 100 150 S70 90 100 52" fill="none" />
-            <path className="draw accent" style={{'--len': '260', strokeDasharray: '4 7', strokeDashoffset: '0', opacity: '.7'} as CSSProperties} d="M100 230 C60 200 140 170 100 150 S70 90 100 52" />
-            <g className="ball"><circle r="7" fill="#FBF8F3" /><circle r="7" fill="none" stroke="#241C17" strokeWidth="1" /><path d="M-3 -2l3-2 3 2-1 3h-4z" fill="#241C17" />
-              <animateMotion dur="3.2s" repeatCount="indefinite" rotate="auto"><mpath href="#ballPath" /></animateMotion></g>
-          </svg></div>
-          <div className="pb"><i></i></div>
-          <div className="who"><span>Z.</span>zuri.agency_ <small>· pôle</small></div>
-          <div className="txt"><h3>Management sportif</h3><p>Accompagner les joueurs et les familles au-delà du terrain.</p><Link className="go" href="/management-sportif">Découvrir le pôle <svg viewBox="0 0 18 18" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M2 9h13M10 4l5 5-5 5" /></svg></Link></div>
-        </div>
+        
       </div>
     </div>
   </section>
@@ -131,8 +116,8 @@ export default function HomeMarkup() {
 
   <section className="trust" id="marques">
     <div className="wrap rv"><div className="eyebrow">Marques</div><h2>Ils nous font confiance</h2></div>
-    <div className="marquee" id="logos"><div className="track"><span className="logo-cell"><img src="/logos/logo-afro-nation.webp" alt="Afro Nation" width="120" height="60" loading="lazy" decoding="async" /></span><span className="logo-cell"><img src="/logos/logo-shein.webp" alt="Shein" width="120" height="60" loading="lazy" decoding="async" className="wm" /></span><span className="logo-cell"><img src="/logos/logo-temu.webp" alt="Temu" width="120" height="60" loading="lazy" decoding="async" /></span><span className="logo-cell"><img src="/logos/logo-teveo.webp" alt="Teveo" width="120" height="60" loading="lazy" decoding="async" /></span><span className="logo-cell"><img src="/logos/logo-paris-fc.webp" alt="Paris FC" width="120" height="60" loading="lazy" decoding="async" /></span><span className="logo-cell"><img src="/logos/logo-cure-vitamine.webp" alt="Cure Vitamine" width="120" height="60" loading="lazy" decoding="async" /></span><span className="logo-cell"><img src="/logos/logo-afro-nation.webp" aria-hidden="true" alt="" width="120" height="60" loading="lazy" decoding="async" /></span><span className="logo-cell"><img src="/logos/logo-shein.webp" aria-hidden="true" alt="" width="120" height="60" loading="lazy" decoding="async" className="wm" /></span><span className="logo-cell"><img src="/logos/logo-temu.webp" aria-hidden="true" alt="" width="120" height="60" loading="lazy" decoding="async" /></span><span className="logo-cell"><img src="/logos/logo-teveo.webp" aria-hidden="true" alt="" width="120" height="60" loading="lazy" decoding="async" /></span><span className="logo-cell"><img src="/logos/logo-paris-fc.webp" aria-hidden="true" alt="" width="120" height="60" loading="lazy" decoding="async" /></span><span className="logo-cell"><img src="/logos/logo-cure-vitamine.webp" aria-hidden="true" alt="" width="120" height="60" loading="lazy" decoding="async" /></span></div></div>
-    <div className="marquee names" aria-hidden="true"><div className="track"><span>Teveo</span><span>Paris FC</span><span>Cure Vitamine</span><span>Afro Nation</span><span>Shein</span><span>Temu</span><span>Teveo</span><span>Paris FC</span><span>Cure Vitamine</span><span>Afro Nation</span><span>Shein</span><span>Temu</span></div></div>
+    <div className="marquee" id="logos"><div className="track"><span className="logo-cell"><img src="/logos/logo-afro-nation.webp" alt="Afro Nation" width="120" height="60" loading="lazy" decoding="async" /></span><span className="logo-cell"><img src="/logos/logo-teveo.webp" alt="Teveo" width="120" height="60" loading="lazy" decoding="async" /></span><span className="logo-cell"><img src="/logos/logo-paris-fc.webp" alt="Paris FC" width="120" height="60" loading="lazy" decoding="async" /></span><span className="logo-cell"><img src="/logos/logo-cure-vitamine.webp" alt="Cure Vitamine" width="120" height="60" loading="lazy" decoding="async" /></span><span className="logo-cell"><img src="/logos/logo-afro-nation.webp" aria-hidden="true" alt="" width="120" height="60" loading="lazy" decoding="async" /></span><span className="logo-cell"><img src="/logos/logo-teveo.webp" aria-hidden="true" alt="" width="120" height="60" loading="lazy" decoding="async" /></span><span className="logo-cell"><img src="/logos/logo-paris-fc.webp" aria-hidden="true" alt="" width="120" height="60" loading="lazy" decoding="async" /></span><span className="logo-cell"><img src="/logos/logo-cure-vitamine.webp" aria-hidden="true" alt="" width="120" height="60" loading="lazy" decoding="async" /></span></div></div>
+    <div className="marquee names" aria-hidden="true"><div className="track"><span>Teveo</span><span>Paris FC</span><span>Cure Vitamine</span><span>Afro Nation</span><span>Teveo</span><span>Paris FC</span><span>Cure Vitamine</span><span>Afro Nation</span></div></div>
   </section>
 
   <section className="closing" id="contact">

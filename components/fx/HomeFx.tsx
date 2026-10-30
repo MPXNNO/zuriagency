@@ -24,7 +24,7 @@ export default function HomeFx() {
     function playCaption() {
       if (captionPlayed) return;
       captionPlayed = true;
-      const TITLE = "Zuri Agency", TAGS = ["#influence", "#strategy", "#sport"];
+      const TITLE = "Zuri Agency", TAGS = ["#influence", "#strategy"];
       if (reduce) {
         capLine.textContent = TITLE;
         capLine.classList.add("grown");
@@ -185,7 +185,7 @@ export default function HomeFx() {
         sts[i].classList.add("hold");
         return;
       }
-      stTimer = S.timeout(() => stAuto && stShow((stCur + 1) % 3), 4600);
+      stTimer = S.timeout(() => stAuto && stShow((stCur + 1) % sts.length), 4600);
     }
     sts.forEach((x, j) => {
       S.on(x, "click", (e: MouseEvent) => {

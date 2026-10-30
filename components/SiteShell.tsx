@@ -13,7 +13,7 @@ import { NAV, SOLID_HEADER, site, INSTAGRAM } from "@/lib/site";
 import { prefersReducedMotion } from "@/lib/scope";
 
 const LEFT = NAV.slice(0, 3);
-const RIGHT = NAV.slice(3, 5);
+const RIGHT = NAV.slice(3, 4);
 
 export default function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname() || "/";
@@ -168,7 +168,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
                 <path d="M6 6l12 12M18 6L6 18" />
               </svg>
             </span>
-            <span className="nbadge">6</span>
+            <span className="nbadge">5</span>
           </button>
         </div>
       </header>

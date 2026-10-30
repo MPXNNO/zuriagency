@@ -4,7 +4,6 @@ import { Resend } from "resend";
 // Reçoit les messages du site :
 // - type "contact" : formulaire « publication » (accueil, fenêtre du pied de page) et carte postale (/contact)
 // - type "rdv-strategie" : rendez-vous offert de la page Stratégie d'entreprise
-// - type "rdv-sport" : rendez-vous offert de la page Management sportif
 
 type Payload = Record<string, unknown>;
 
@@ -15,17 +14,13 @@ const LABELS: Record<string, string> = {
   email: "Email",
   phone: "Téléphone",
   profile: "Vous êtes",
-  company: "Entreprise",
-  club: "Club actuel",
-  level: "Niveau de pratique",
-  position: "Poste / spécialité",
+  company: "Marque ou entreprise",
   message: "Message",
 };
 
 const SUBJECTS: Record<string, (who: string) => string> = {
   contact: (who) => `Nouveau message de ${who} via zuriagency.fr`,
   "rdv-strategie": (who) => `Rendez-vous stratégie demandé par ${who}`,
-  "rdv-sport": (who) => `Rendez-vous sportif demandé par ${who}`,
   candidature: (who) => `Nouvelle candidature talent de ${who}`,
 };
 

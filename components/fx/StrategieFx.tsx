@@ -102,7 +102,7 @@ export default function StrategieFx() {
       if (!g("#r-name")) err = "Indiquez votre nom.";
       else if (!EMAIL_RE.test(g("#r-mail"))) err = "Cet email semble incomplet.";
       else if (g("#r-tel").replace(/\D/g, "").length < 9) err = "Indiquez un numéro de téléphone.";
-      else if (!g("#r-co")) err = "Indiquez le nom de votre entreprise.";
+      else if (!g("#r-co")) err = "Indiquez le nom de votre marque ou entreprise.";
       er.textContent = err;
       if (err) return;
       send.disabled = true;

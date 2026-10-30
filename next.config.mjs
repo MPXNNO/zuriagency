@@ -5,6 +5,10 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
   reactStrictMode: true,
+  async redirects() {
+    // le pôle Management sportif a été retiré : les anciens liens renvoient vers l'accueil
+    return [{ source: "/management-sportif", destination: "/", permanent: true }];
+  },
   async headers() {
     // les médias ne changent pas de nom sans changer de contenu : le navigateur peut les garder longtemps
     return ["/media/:path*", "/img/:path*", "/audio/:path*", "/logos/:path*"].map((source) => ({ source, headers: longCache }));

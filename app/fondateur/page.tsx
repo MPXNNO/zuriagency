@@ -5,7 +5,7 @@ import RevealFx from "@/components/fx/RevealFx";
 export const metadata: Metadata = {
   title: "Le mot du fondateur, Steve K. Dompe",
   description:
-    "Steve K. Dompe, fondateur de Zuri Agency, raconte pourquoi il a créé l'agence : donner aux talents les opportunités qu'ils méritent, dans l'influence, l'entreprise et le sport.",
+    "Steve K. Dompe, fondateur de Zuri Agency, raconte pourquoi il a créé l'agence : donner aux talents les opportunités qu'ils méritent, dans l'influence et l'entreprise.",
   alternates: { canonical: "/fondateur" },
   openGraph: { url: "/fondateur", title: "Le mot du fondateur | Zuri Agency" },
 };

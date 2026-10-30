@@ -26,7 +26,7 @@ const jost = localFont({
 
 const TITLE = "Zuri Agency | Agence de marketing d'influence et de talents à Paris";
 const DESCRIPTION =
-  "Agence de marketing d'influence à Paris : Zuri Agency représente des talents et influenceurs et construit leurs campagnes avec les marques. Aussi stratégie d'entreprise et management sportif.";
+  "Agence de marketing d'influence à Paris : Zuri Agency représente des talents et influenceurs et construit leurs campagnes avec les marques. Elle construit aussi la stratégie marketing des marques et des entreprises.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -43,7 +43,8 @@ export const metadata: Metadata = {
     "agence pour influenceurs",
     "management d'influenceurs",
     "stratégie d'entreprise",
-    "management sportif",
+    "stratégie marketing",
+    "stratégie de marque",
     "Zuri Agency",
     "Steve K. Dompe",
   ],
@@ -113,8 +114,7 @@ const JSON_LD = {
         name: "Pôles d'expertise",
         itemListElement: [
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Marketing d'influence", url: `${SITE_URL}/marketing-influence`, description: "Représentation et management de talents et d'influenceurs, mise en relation avec les marques, négociation et campagnes d'influence." } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Stratégie d'entreprise", url: `${SITE_URL}/strategie-entreprise`, description: "Conseil en stratégie et développement commercial pour entreprises et entrepreneurs." } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Management sportif", url: `${SITE_URL}/management-sportif`, description: "Accompagnement des jeunes joueurs et de leurs familles au-delà du terrain." } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Stratégie d'entreprise", url: `${SITE_URL}/strategie-entreprise`, description: "Stratégie marketing des marques et des entreprises : positionnement, message, contenus, réseaux sociaux et campagnes d'influence." } },
         ],
       },
     },
